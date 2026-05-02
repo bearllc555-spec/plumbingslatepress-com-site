@@ -1,0 +1,36 @@
+# GitHub Actions: deploy to Cloudflare Pages on every push to main.
+#
+# Required repo secrets:
+#   CLOUDFLARE_API_TOKEN — scoped to Account → Cloudflare Pages → Edit (token name:
+#                          plumbingslatepress-com-site-github-actions, created 2026-05-02)
+#   CLOUDFLARE_ACCOUNT_ID — e0f6f68f26f8a26a75eaa793385019ef (Bearllc555@gmail.com's Account)
+#
+# Pages project is plumbingslatepress-com (existing Direct-Upload-only project; this workflow
+# pushes to it via Wrangler, eliminating the manual zip-drag step).
+
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # allow manual trigger from the Actions tab
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Deploy the repo root to the existing 'plumbingslatepress-com' Pages project.
+          # The repo IS the source of truth; no build step needed (static HTML/CSS/JS + _worker.js).
+          command: pages deploy . --project-name=plumbingslatepress-com --branch=main --commit-dirty=true
