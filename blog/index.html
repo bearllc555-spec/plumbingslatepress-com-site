@@ -9,11 +9,11 @@
 <link rel="canonical" href="https://plumbingslatepress.com/blog/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://i.ytimg.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --accent:#2563EB;
-  --accent-glow:rgba(37,99,235,.14);
   --paper:#FAFBFF;
   --paper-2:#EEF3FF;
   --paper-3:#E1EAFF;
@@ -22,10 +22,8 @@
   --ink-soft:#3A3D42;
   --slate:#6B6A73;
   --rule:#DCE3F5;
-  --rule-soft:#E8EDFA;
   --blue:#2563EB;
   --blue-deep:#1D4ED8;
-  --blue-bright:#3B82F6;
   --blue-soft:#EFF3FF;
   --blue-glow:rgba(37,99,235,.16);
   --max:1240px;
@@ -37,7 +35,6 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
 
-/* TOPNAV (mirrors lander) */
 .topnav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid transparent;transition:border-color .3s ease,background-color .3s ease}
 .topnav.scrolled{border-bottom-color:var(--rule);background:rgba(250,251,255,.92);backdrop-filter:saturate(160%) blur(10px)}
 .topnav-inner{max-width:var(--max);margin:0 auto;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
@@ -61,7 +58,6 @@ img{max-width:100%;display:block}
   .topnav-cta svg{display:none}
 }
 
-/* BLOG HERO */
 .blog-hero{padding:80px 0 56px;text-align:center;position:relative;overflow:hidden}
 .blog-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center top,var(--paper-2) 0%,transparent 60%);pointer-events:none;z-index:0}
 .blog-hero-inner{position:relative;z-index:1}
@@ -70,28 +66,40 @@ img{max-width:100%;display:block}
 .blog-hero h1 .accent{color:var(--blue);font-style:italic}
 .blog-hero-sub{font-size:clamp(15px,1.2vw,18px);color:var(--ink-soft);max-width:54ch;line-height:1.6;margin:28px auto 0}
 
-/* POST LIST */
+/* POST LIST — new YouTube-style layout */
 .posts{padding:32px 0 96px}
 .post-list{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:18px;overflow:hidden;box-shadow:0 30px 80px rgba(37,99,235,.05)}
-.post-card{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:32px 40px;background:var(--white);transition:background .2s}
+.post-card{display:grid;grid-template-columns:240px 1fr;gap:28px;padding:24px 32px;background:var(--white);transition:background .2s;align-items:center}
 .post-card:hover{background:var(--blue-soft)}
 .post-card:hover h2{color:var(--blue-deep)}
 .post-card:hover .post-read{transform:translateX(4px)}
-.post-meta{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:var(--slate);letter-spacing:.02em;line-height:1.7}
-.post-card h2{font-size:clamp(22px,2.2vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.18;color:var(--ink);margin-bottom:10px;transition:color .2s}
-.post-card p{font-size:15.5px;color:var(--ink-soft);line-height:1.6;margin-bottom:18px;max-width:62ch}
+.post-card:hover .post-thumb-youtube .post-thumb-play{transform:translate(-50%,-50%) scale(1.06);background:rgba(0,0,0,.85)}
+
+.post-thumb{position:relative;width:240px;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background-color:#000;background-size:cover;background-position:center;background-repeat:no-repeat;flex-shrink:0}
+.post-thumb-youtube::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%);pointer-events:none}
+.post-thumb-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:38px;background:rgba(0,0,0,.78);border-radius:9px;display:flex;align-items:center;justify-content:center;transition:transform .2s ease,background .2s ease;z-index:1}
+.post-thumb-play::after{content:'';width:0;height:0;border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.post-thumb-tile{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,var(--blue) 0%,var(--blue-deep) 100%);padding:18px;color:#fff}
+.post-thumb-tile-mark{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);align-self:flex-start}
+.post-thumb-tile-tag{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;line-height:1.15}
+
+.post-content{display:flex;flex-direction:column;gap:8px;min-width:0}
+.post-meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:500;color:var(--slate);letter-spacing:.04em;text-transform:uppercase}
+.post-card h2{font-size:clamp(20px,2vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--ink);margin:0;transition:color .2s}
+.post-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.55;margin:0;max-width:62ch}
+.post-footer{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:6px}
 .post-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);background:var(--blue-soft);padding:.3rem .7rem;border-radius:999px}
-.post-read{display:inline-flex;align-items:center;gap:.4rem;font-size:14px;font-weight:600;color:var(--blue);margin-right:14px;transition:transform .2s}
+.post-read{display:inline-flex;align-items:center;gap:.4rem;font-size:13.5px;font-weight:600;color:var(--blue);transition:transform .2s}
+
 @media(max-width:760px){
-  .post-card{grid-template-columns:1fr;gap:14px;padding:26px 22px}
-  .post-meta{font-size:11.5px}
+  .post-card{grid-template-columns:1fr;gap:14px;padding:22px}
+  .post-thumb{width:100%;max-width:none}
+  .post-card h2{font-size:20px}
 }
 
-/* EMPTY-STATE / SOON-TO-COME */
 .coming-soon{margin-top:56px;text-align:center}
 .coming-soon p{font-size:14px;color:var(--slate);font-style:italic}
 
-/* FOOTER */
 .foot{border-top:1px solid var(--rule);padding:48px 0 64px;color:var(--slate);font-size:13.5px;line-height:1.7}
 .foot-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
 .foot-brand{font-weight:700;color:var(--ink);margin-bottom:6px}
@@ -127,32 +135,49 @@ img{max-width:100%;display:block}
     <div class="post-list">
 
       <a class="post-card" href="/blog/posts/what-the-132-million-view-plumber-knows/">
-        <div class="post-meta">May 2, 2026<br>5 min read</div>
-        <div>
+        <div class="post-thumb post-thumb-youtube" style="background-image:url('https://i.ytimg.com/vi/CBCFjPKSSZM/hqdefault.jpg');" aria-label="Roger Wakefield Plumbing Education — Welcome to My Channel">
+          <span class="post-thumb-play" aria-hidden="true"></span>
+        </div>
+        <div class="post-content">
+          <div class="post-meta">May 2, 2026 · 5 min read</div>
           <h2>What the 132-million-view plumber knows.</h2>
           <p>Roger Wakefield posted his first plumbing video years ago and never stopped. The lesson buried in his timeline isn't about YouTube — it's about content as compounding inventory for a service business, and what it would mean to start building yours before everyone else in your ZIP does.</p>
-          <span class="post-read">Read the notes <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
-          <span class="post-tag">Operator notes</span>
+          <div class="post-footer">
+            <span class="post-tag">Operator notes</span>
+            <span class="post-read">Read the notes <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </div>
         </div>
       </a>
 
       <a class="post-card" href="/blog/posts/why-the-cold-call-agencies-keep-finding-you/">
-        <div class="post-meta">May 2, 2026<br>6 min read</div>
-        <div>
+        <div class="post-thumb post-thumb-tile" aria-label="Cold-outreach teardown thumbnail">
+          <span class="post-thumb-tile-mark">Plumbing\Slatepress</span>
+          <span class="post-thumb-tile-tag">Cold-outreach<br>teardown</span>
+        </div>
+        <div class="post-content">
+          <div class="post-meta">May 2, 2026 · 6 min read</div>
           <h2>Why the cold-call agencies keep finding you.</h2>
           <p>It isn't that your shop is special. It isn't that they've researched your business. It's that their unit economics structurally require them to find every plumber, every week — and the cold-DM is a confession about what kind of operation is reaching out.</p>
-          <span class="post-read">Read the notes <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
-          <span class="post-tag">Cold-outreach teardown</span>
+          <div class="post-footer">
+            <span class="post-tag">Cold-outreach teardown</span>
+            <span class="post-read">Read the notes <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </div>
         </div>
       </a>
 
       <a class="post-card" href="/blog/posts/why-your-phone-went-quiet/">
-        <div class="post-meta">May 2, 2026<br>6 min read</div>
-        <div>
+        <div class="post-thumb post-thumb-tile" aria-label="Phone economics thumbnail">
+          <span class="post-thumb-tile-mark">Plumbing\Slatepress</span>
+          <span class="post-thumb-tile-tag">Phone<br>economics</span>
+        </div>
+        <div class="post-content">
+          <div class="post-meta">May 2, 2026 · 6 min read</div>
           <h2>Why your phone went quiet.</h2>
           <p>It isn't your reviews, it isn't the season, and it isn't the service area. Most of the calls you think are missing are calls that did come in — they just hit a voicemail nobody listened to until Tuesday. The math on what that's actually costing you, and what fixing it looks like.</p>
-          <span class="post-read">Read the notes <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
-          <span class="post-tag">Phone economics</span>
+          <div class="post-footer">
+            <span class="post-tag">Phone economics</span>
+            <span class="post-read">Read the notes <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </div>
         </div>
       </a>
 
