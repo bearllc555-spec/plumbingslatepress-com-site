@@ -1,6 +1,6 @@
 /* Cloudflare Pages Advanced Mode — single _worker.js bundling:
  *  - /api/verify/start and /api/verify/check  (Twilio Verify SMS)
- *  - HTTP Basic Auth gate for /mockups/* paths (internal design library)
+ *  - HTTP Basic Auth gate for /mockups/* and /ads/* paths (internal libraries — same credentials)
  *  - Static-asset fallthrough via env.ASSETS.fetch(request)
  *
  * Env vars required (set in Pages project Settings -> Variables and Secrets):
@@ -177,15 +177,15 @@ export default {
     }
 
     // Basic Auth gate for the internal mockup library
-    if (path === '/mockups' || path.startsWith('/mockups/')) {
+    if (path === '/mockups' || path.startsWith('/mockups/') || path === '/ads' || path.startsWith('/ads/')) {
       const auth = checkBasicAuth(request, env);
       if (!auth.configured) {
-        return new Response('Mockup library auth not configured. Set MOCKUPS_AUTH_USER and MOCKUPS_AUTH_PASS in Pages env vars.', { status: 503 });
+        return new Response('Internal library auth not configured. Set MOCKUPS_AUTH_USER and MOCKUPS_AUTH_PASS in Pages env vars.', { status: 503 });
       }
       if (!auth.ok) {
         return new Response('Authentication required.', {
           status: 401,
-          headers: { 'WWW-Authenticate': 'Basic realm="Plumbing Slatepress Mockup Library"' },
+          headers: { 'WWW-Authenticate': 'Basic realm="Plumbing Slatepress Internal"' },
         });
       }
       // Auth passed — fall through to static asset.
