@@ -1,0 +1,739 @@
+<!doctype html>
+<!--
+  De Vito Plumbing & Heating — v020
+  DNA: Anderson Plumbing — human warmth / social proof
+  Palette: hot magenta #1062B2 + black + white + yellow rating gold
+  Type: Inter italic 800 for display, regular for body
+  Pricing illustrative. Specificity slots [SPEC: ...].
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>De Vito Plumbing &amp; Heating — Cedar Grove NJ Family Plumber Since 1986</title>
+<meta name="description" content="Family-run Cedar Grove, NJ plumber since 1986. 4.8★ Google rating. (973) 571-1411.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#ffffff;
+  --ink:#0a0a0a;
+  --ink-soft:#3a3a3a;
+  --slate:#7a7a7a;
+  --line:#ececec;
+  --magenta:#1062B2;
+  --magenta-deep:#0a4685;
+  --magenta-pale:#dfecf7;
+  --gold:#F5B400;
+  --max:1280px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink-soft);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--magenta)}
+.eyebrow.on-dark{color:var(--gold)}
+.italic-display{font-style:italic;font-weight:800;letter-spacing:-.025em}
+
+/* motion */
+.fx-words .word{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.fx-words .word-inner{display:inline-block;transform:translateY(110%);transition:transform .9s cubic-bezier(.215,.61,.355,1);transition-delay:calc(var(--i,0) * 70ms)}
+.fx-words.in .word-inner{transform:translateY(0)}
+.fx-letters .letter{display:inline-block;opacity:0;transform:translateY(.5em);transition:opacity .5s ease, transform .5s cubic-bezier(.215,.61,.355,1);transition-delay:calc(var(--i,0) * 22ms)}
+.fx-letters.in .letter{opacity:1;transform:translateY(0)}
+.fx-row{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s cubic-bezier(.215,.61,.355,1);transition-delay:var(--row-delay,0ms)}
+.fx-row.in{opacity:1;transform:none}
+.kicker-pulse{animation:kicker-pulse 1.4s ease-in-out infinite}
+@keyframes kicker-pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@media(prefers-reduced-motion:reduce){.fx-words .word-inner,.fx-letters .letter,.fx-row{transition:none;transform:none;opacity:1}.kicker-pulse{animation:none}}
+
+/* magenta wedge motif (signature decorative fingerprint) */
+.wedge{position:absolute;background:var(--magenta);pointer-events:none}
+
+/* ===== top promo banner ===== */
+.promo-bar{background:#f8f8f8;color:var(--ink);font-size:13px;padding:10px 0;font-weight:600;border-bottom:1px solid var(--line)}
+.promo-bar-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.promo-bar a{color:var(--magenta);font-weight:700}
+
+/* ===== nav ===== */
+.nav{padding:14px 0;background:var(--white);position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.brand{display:flex;align-items:flex-start;gap:14px}
+.stamp{width:54px;display:flex;flex-direction:column;align-items:center;text-align:center;flex-shrink:0}
+.stamp-since{font-size:9px;font-style:italic;color:var(--ink);font-weight:600;letter-spacing:.04em}
+.stamp-box{background:var(--ink);color:#fff;padding:6px 6px;font-size:14px;font-weight:800;letter-spacing:.04em;line-height:1;width:100%;text-align:center;border-radius:2px;margin-top:2px}
+.stamp-svc{font-size:8px;color:var(--magenta);font-weight:800;letter-spacing:.04em;margin-top:3px;line-height:1.2}
+.brand-meta{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--ink-soft);font-weight:600}
+.stars-row{display:inline-flex;gap:2px;color:var(--gold);font-size:14px;letter-spacing:.04em}
+.read-reviews{font-size:11px;color:var(--ink);font-weight:700;line-height:1.2}
+.nav-status{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink);margin-left:auto}
+.nav-status .dot{width:10px;height:10px;border-radius:50%;background:var(--magenta)}
+.nav-status .lbl{display:flex;flex-direction:column;line-height:1.2}
+.nav-status .lbl .top{font-weight:700}
+.nav-status .lbl .sub{font-weight:500;color:var(--slate);font-size:11px}
+.nav-phone-pill{display:inline-flex;align-items:center;gap:.55rem;padding:.85rem 1.5rem;border:1px solid var(--ink);border-radius:999px;font-weight:700;font-size:14px;color:var(--ink)}
+.nav-phone-pill svg{width:14px;height:14px}
+.nav-cta{display:inline-flex;align-items:center;gap:.55rem;background:var(--magenta);color:#fff;padding:.95rem 1.6rem;border-radius:999px;font-weight:700;font-size:14px;box-shadow:0 8px 22px rgba(16,98,178,.32);transition:transform .25s,background .25s}
+.nav-cta:hover{background:var(--magenta-deep);transform:translateY(-1px)}
+.nav-cta svg{width:16px;height:16px}
+@media(max-width:1100px){.brand-meta{display:none}.nav-status{margin-left:0}}
+.brand-tagline{display:flex;flex-direction:column;align-items:flex-start;padding-left:18px;margin-left:8px;border-left:2px solid var(--line);font-family:Inter,sans-serif;line-height:1.32}
+.brand-tagline .top{font-weight:800;color:var(--ink);font-size:14px;letter-spacing:-.005em}
+.brand-tagline .sub{color:var(--slate);font-weight:500;font-size:12px;letter-spacing:.01em;margin-top:2px}
+@media(max-width:1100px){.brand-tagline{display:none}}
+.brand-google{height:44px;width:auto;display:block;margin-left:6px;flex-shrink:0}
+@media(max-width:1100px){.brand-google{display:none}}
+
+/* ===== mega-nav ===== */
+.mega-nav{background:var(--ink);color:#fff;padding:0}
+.mega-nav-inner{display:flex;justify-content:space-around;flex-wrap:wrap}
+.mega-nav a{display:inline-flex;align-items:center;gap:6px;padding:14px 22px;font-size:14px;font-weight:600;color:#fff}
+.mega-nav a:hover{background:var(--magenta)}
+.mega-nav a svg{width:12px;height:12px}
+
+/* ===== hero ===== */
+.hero{padding:80px 0 100px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;position:relative}
+.hero-eyebrow{font-size:13px;font-weight:700;color:var(--magenta);margin-bottom:18px;letter-spacing:.04em}
+.hero h1{font-size:clamp(48px,6vw,84px);font-style:italic;font-weight:800;letter-spacing:-.025em;line-height:1.04;margin:0 0 22px;color:var(--ink)}
+.hero h1 sup{font-size:.4em;color:var(--magenta);font-style:normal}
+.hero-lede{font-size:17px;color:var(--ink-soft);max-width:48ch;line-height:1.6;margin:0 0 32px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn-magenta{display:inline-flex;align-items:center;gap:.55rem;background:var(--magenta);color:#fff;padding:1.1rem 1.8rem;border-radius:999px;font-weight:700;font-size:15px;box-shadow:0 12px 28px rgba(16,98,178,.32);transition:transform .25s,background .25s}
+.btn-magenta:hover{background:var(--magenta-deep);transform:translateY(-1px)}
+.btn-magenta svg{width:16px;height:16px}
+.btn-phone-outline{display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid var(--ink);color:var(--ink);padding:1.05rem 1.6rem;border-radius:999px;font-weight:700;font-size:15px}
+.btn-phone-outline:hover{background:var(--ink);color:#fff}
+.btn-phone-outline svg{width:16px;height:16px}
+.hero-visual-wrap{position:relative}
+.hero-visual{aspect-ratio:5/4;background-size:cover;background-position:center;border-radius:0;position:relative;overflow:hidden}
+.hero-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 70%,rgba(16,98,178,.4))}
+.hero-wedge-1{position:absolute;right:-30px;top:-30px;width:300px;height:300px;background:var(--magenta);clip-path:polygon(100% 0,100% 100%,0 0);z-index:-1}
+.hero-rating-badge{position:absolute;top:24px;right:24px;width:124px;height:124px;border-radius:50%;background:var(--gold);border:6px solid #fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 18px 40px rgba(0,0,0,.18);z-index:3}
+.hero-rating-badge .rating-num{font-size:34px;font-weight:800;color:var(--ink);line-height:1;letter-spacing:-.03em}
+.hero-rating-badge .rating-stars{color:var(--ink);font-size:14px;letter-spacing:.04em;margin-top:2px}
+.hero-rating-badge .rating-meta{font-size:9px;color:var(--ink-soft);font-weight:600;text-align:center;margin-top:4px;line-height:1.2}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}.hero-visual{aspect-ratio:4/3}}
+
+/* ===== offers (magenta full-bleed band) ===== */
+.offers{background:var(--magenta);color:#fff;padding:96px 0;position:relative;overflow:hidden}
+.offers::before{content:'';position:absolute;top:-30px;right:-30px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);pointer-events:none}
+.offers::after{content:'';position:absolute;bottom:-50px;left:-50px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.06),transparent 70%);pointer-events:none}
+.offers-head{text-align:center;margin-bottom:48px;position:relative}
+.offers-head h2{font-size:clamp(36px,4.5vw,60px);font-style:italic;font-weight:800;color:#fff;letter-spacing:-.025em;line-height:1.04;margin:.5rem 0 0}
+.offers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+.offer{background:#fff;color:var(--ink);padding:28px 24px;text-align:center;border-radius:8px;position:relative;transition:transform .3s}
+.offer:hover{transform:translateY(-4px)}
+.offer-amt{font-size:48px;font-style:italic;font-weight:800;color:var(--magenta);line-height:1;letter-spacing:-.03em}
+.offer-amt small{font-size:24px}
+.offer-amt .pct{font-size:32px;display:inline-block}
+.offer-title{font-size:14px;font-weight:700;color:var(--ink);margin:8px 0 6px;letter-spacing:.02em}
+.offer-fine{font-size:11px;color:var(--slate);font-style:italic;line-height:1.45}
+.offer-cta{margin-top:14px}
+.offer-cta a{display:inline-flex;align-items:center;gap:.4rem;background:var(--ink);color:#fff;padding:.65rem 1.2rem;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.04em}
+.offer-cta a:hover{background:var(--magenta-deep)}
+.offer-cta svg{width:12px;height:12px}
+@media(max-width:880px){.offers-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.offers-grid{grid-template-columns:1fr}}
+
+/* ===== services ===== */
+.services{padding:96px 0;background:var(--white)}
+.services-head{text-align:center;max-width:560px;margin:0 auto 56px}
+.services-head h2{font-size:clamp(34px,4vw,52px);font-style:italic;font-weight:800;color:var(--ink);letter-spacing:-.025em;line-height:1.04;margin:.5rem 0 0}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc{background:#fff;border:1px solid var(--ink);border-radius:12px;padding:32px 28px;border-top:4px solid var(--magenta);transition:transform .3s,box-shadow .3s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(16,98,178,.1)}
+.svc-icon{width:56px;height:56px;background:var(--magenta-pale);color:var(--magenta);border-radius:12px;display:grid;place-items:center;margin-bottom:18px}
+.svc-icon.has-photo{background:transparent;overflow:hidden}
+.svc-icon img{width:100%;height:100%;object-fit:cover;border-radius:12px;display:block}
+.svc-icon svg{width:26px;height:26px}
+.svc h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 8px;letter-spacing:-.01em}
+.svc p{margin:0 0 16px;color:var(--ink-soft);font-size:15px;line-height:1.55}
+.svc-link{color:var(--magenta);font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:.4rem}
+.svc-link:hover{color:var(--magenta-deep)}
+.svc-link svg{width:14px;height:14px;transition:transform .25s}
+.svc-link:hover svg{transform:translateX(3px)}
+@media(max-width:880px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.svc-grid{grid-template-columns:1fr}}
+
+/* ===== AMP-style membership ===== */
+.member{background:var(--ink);color:#fff;padding:96px 0;position:relative;overflow:hidden}
+.member::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(16,98,178,.18),transparent 70%)}
+.member-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative}
+.member h2{font-size:clamp(34px,4.5vw,54px);font-style:italic;font-weight:800;letter-spacing:-.025em;line-height:1.04;margin:.5rem 0 16px}
+.member h2 em{font-style:italic;color:var(--gold);font-weight:800}
+.member p{color:rgba(255,255,255,.78);font-size:16px;line-height:1.6;margin:0 0 24px;max-width:42ch}
+.member-pills{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.mp{display:flex;align-items:flex-start;gap:14px}
+.mp-icon{width:32px;height:32px;border-radius:50%;background:rgba(16,98,178,.2);color:var(--magenta);display:grid;place-items:center;flex-shrink:0}
+.mp-icon svg{width:16px;height:16px}
+.mp h4{margin:0 0 4px;font-size:14px;font-weight:700;color:#fff;font-style:italic}
+.mp p{margin:0;font-size:13px;color:rgba(255,255,255,.65);line-height:1.45;max-width:none}
+.member-img{aspect-ratio:5/6;background-size:cover;background-position:center;border-radius:12px;position:relative}
+.member-img::after{content:'';position:absolute;left:24px;bottom:-22px;width:120px;height:42px;background:#fff;border-radius:999px;display:grid;place-items:center;color:var(--magenta);font-style:italic;font-weight:800;font-size:14px;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.member-img-badge{position:absolute;left:24px;bottom:-22px;width:130px;height:46px;background:#fff;border-radius:999px;display:flex;align-items:center;justify-content:center;color:var(--magenta);font-weight:800;font-size:13px;box-shadow:0 8px 20px rgba(0,0,0,.3);gap:6px}
+.member-img-badge .star{color:var(--gold)}
+@media(max-width:900px){.member-grid{grid-template-columns:1fr;gap:40px}}
+
+/* ===== anderson experience (4 service guarantees) ===== */
+.experience{padding:96px 0;background:var(--white)}
+.experience-head{text-align:center;max-width:600px;margin:0 auto 56px}
+.experience-head h2{font-size:clamp(32px,4vw,48px);font-style:italic;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.04;margin:.5rem 0 14px}
+.experience-head p{color:var(--ink-soft);font-size:16px;line-height:1.65;max-width:50ch;margin:0 auto}
+.guarantees{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.gua{text-align:center}
+.gua-icon{width:72px;height:72px;margin:0 auto 18px;color:var(--magenta);display:grid;place-items:center}
+.gua-icon svg{width:72px;height:72px;stroke-width:1.4}
+.gua h4{font-size:17px;font-weight:700;font-style:italic;color:var(--ink);margin:0 0 6px}
+.gua p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.55;max-width:24ch;margin-left:auto;margin-right:auto}
+@media(max-width:880px){.guarantees{grid-template-columns:repeat(2,1fr);gap:32px}}
+
+/* ===== about / Since 1986 ===== */
+.about{padding:96px 0;background:#fafafa;position:relative;overflow:hidden}
+.about::before{content:'';position:absolute;left:-100px;top:50%;width:300px;height:300px;background:var(--magenta);clip-path:polygon(0 50%,100% 0,100% 100%);opacity:.3;z-index:0}
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;position:relative;z-index:2}
+.about-img-wrap{position:relative}
+.about-img{aspect-ratio:4/5;background-size:cover;background-position:center;border-radius:12px;border:6px solid #fff;box-shadow:0 24px 48px rgba(0,0,0,.12);position:relative}
+.about-since{position:absolute;left:-22px;top:32px;background:var(--magenta);color:#fff;padding:14px 22px;font-style:italic;font-weight:800;font-size:18px;border-radius:8px;box-shadow:0 8px 20px rgba(16,98,178,.32);z-index:3}
+.about h2{font-size:clamp(34px,4.5vw,52px);font-style:italic;font-weight:800;color:var(--ink);letter-spacing:-.025em;line-height:1.04;margin:.5rem 0 18px}
+.about p{color:var(--ink-soft);font-size:16px;line-height:1.7}
+.about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}
+.about-stat{padding:22px 20px;background:#fff;border:1px solid var(--line);border-radius:8px;border-left:4px solid var(--magenta)}
+.about-stat-num{font-size:42px;font-style:italic;font-weight:800;color:var(--ink);line-height:1;letter-spacing:-.03em}
+.about-stat-label{font-size:12px;color:var(--ink-soft);margin-top:6px;font-weight:600;letter-spacing:.04em}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:48px}}
+
+/* ===== awards row ===== */
+.awards{padding:60px 0;background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.awards-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:32px;align-items:center;justify-items:center;opacity:.7}
+.aw{text-align:center;font-size:11px;font-weight:800;line-height:1.2;color:var(--ink);text-transform:uppercase;letter-spacing:.04em}
+.aw .badge{display:inline-block;padding:8px 12px;border:1.5px solid var(--ink);border-radius:4px;font-size:14px;font-weight:800;font-style:italic;color:var(--ink);background:#fff;margin-bottom:6px}
+.aw .yr{color:var(--magenta);font-size:10px;font-weight:700;display:block;margin-top:2px}
+@media(max-width:900px){.awards-grid{grid-template-columns:repeat(3,1fr);gap:24px}}
+
+/* ===== service area / map ===== */
+.area{padding:96px 0;background:#fafafa}
+.area-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.area-map{aspect-ratio:1/1;background:#fff;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.06);position:relative;overflow:hidden}
+.area-map iframe{width:100%;height:100%;border:0;display:block}
+.area-map-overlay{position:absolute;left:18px;bottom:18px;background:rgba(255,255,255,.95);border:2px solid var(--magenta);border-radius:10px;padding:10px 14px;box-shadow:0 6px 18px rgba(16,98,178,.18);font-size:12px;font-weight:700;color:var(--ink);max-width:62%;line-height:1.5;backdrop-filter:saturate(140%) blur(4px);pointer-events:none}
+.area-map-overlay-eyebrow{display:block;font-size:10px;font-weight:800;color:var(--magenta);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.area h2{font-size:clamp(32px,4vw,48px);font-style:italic;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.04;margin:.5rem 0 18px}
+.area p{color:var(--ink-soft);font-size:16px;line-height:1.65;margin:0 0 26px;max-width:42ch}
+.area-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+@media(max-width:900px){.area-grid{grid-template-columns:1fr;gap:40px}}
+
+/* ===== reviews carousel ===== */
+.reviews{padding:96px 0;background:var(--white);position:relative}
+.reviews::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,0,0,.04) 1px,transparent 1px);background-size:48px 48px;opacity:.5;pointer-events:none}
+.reviews-head{text-align:center;max-width:560px;margin:0 auto 48px;position:relative}
+.reviews-head h2{font-size:clamp(34px,4vw,48px);font-style:italic;font-weight:800;color:var(--ink);letter-spacing:-.025em;line-height:1.04;margin:.5rem 0 14px}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative}
+.rev{background:var(--white);border:1px solid var(--ink);border-radius:12px;padding:24px;display:flex;flex-direction:column}
+.rev-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.rev-avatar{width:36px;height:36px;border-radius:50%;background-size:cover;background-position:center;flex-shrink:0;display:grid;place-items:center;color:#fff;font-weight:800;font-size:14px}
+.rev-name{font-weight:700;color:var(--ink);font-size:14px;display:inline-flex;align-items:center;gap:4px}
+.rev-name .check{color:#1976d2}
+.rev-name svg{width:13px;height:13px}
+.rev-meta{font-size:11px;color:var(--slate);display:flex;align-items:center;gap:4px;margin-top:1px}
+.rev-meta svg{width:14px;height:14px}
+.rev-stars{color:var(--gold);font-size:14px;letter-spacing:.1em;margin-bottom:8px}
+.rev p{margin:0 0 12px;font-size:13px;color:var(--ink-soft);line-height:1.55;flex:1}
+.rev-readmore{color:var(--magenta);font-weight:700;font-size:12px}
+@media(max-width:900px){.reviews-grid{grid-template-columns:1fr}}
+
+/* ===== final / footer ===== */
+.final{position:relative;background:var(--ink);color:#fff;padding:80px 0;overflow:hidden}
+.final::before{content:'';position:absolute;top:0;right:0;width:400px;height:280px;background:var(--magenta);clip-path:polygon(50% 0,100% 0,100% 100%);opacity:.6;pointer-events:none}
+.final-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center;position:relative}
+.final-van{aspect-ratio:5/3;background-size:cover;background-position:center;border-radius:8px}
+.final-tagline{font-style:italic;font-weight:800;font-size:32px;line-height:1.1;color:#fff;margin:0 0 14px}
+.final-tagline em{color:var(--gold);font-style:italic}
+.final-meta{font-size:14px;color:rgba(255,255,255,.78);margin:0 0 24px;font-weight:600;letter-spacing:.02em}
+.final-meta strong{color:var(--magenta)}
+.final-actions{display:flex;flex-wrap:wrap;gap:12px}
+
+footer{padding:36px 0;background:var(--ink);color:rgba(255,255,255,.5);font-size:13px;border-top:1px solid rgba(255,255,255,.08)}
+.foot-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:24px}
+.foot-cols h5{color:var(--magenta);font-size:13px;font-weight:700;margin:0 0 12px;letter-spacing:.04em}
+.foot-cols a{display:block;padding:5px 0;color:rgba(255,255,255,.7);font-size:13px}
+.foot-cols a:hover{color:var(--gold)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}
+.foot-credit a{color:var(--magenta);font-weight:700}
+@media(max-width:760px){.foot-cols{grid-template-columns:1fr;gap:24px}}
+
+.disclaimer{font-size:11px;color:rgba(255,255,255,.4);font-style:italic;text-align:center;padding:14px 28px;background:var(--ink)}
+</style>
+</head>
+<body>
+
+<div class="promo-bar">
+  <div class="wrap promo-bar-inner">
+    <span><strong>Stay Warm — </strong>Schedule a boiler tune-up before winter!</span>
+    <span>Become an AMP Member &nbsp;·&nbsp; <a href="#member">Learn More</a></span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">
+      <div class="stamp">
+        <span class="stamp-since">Since 1986</span>
+        <span class="stamp-box">DE VITO</span>
+        <span class="stamp-svc">PLUMBING &amp; HEATING</span>
+      </div>
+    </div>
+    <div class="brand-tagline">
+      <span class="top">Family-run plumbing.</span>
+      <span class="sub">Cedar Grove · Since 1986</span>
+    </div>
+    <img class="brand-google" src="../_assets/plumbers/Google-Review-Symbol.jpg" alt="Reviewed on Google">
+    <div class="nav-status">
+      <span class="dot kicker-pulse"></span>
+      <span class="lbl"><span class="top">24/7 Emergency</span><span class="sub">Support Available</span></span>
+    </div>
+    <a href="tel:+19735711411" class="nav-phone-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (973) 571-1411
+    </a>
+    <a href="tel:+19735711411" class="nav-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Schedule Online
+    </a>
+  </div>
+</header>
+
+<nav class="mega-nav">
+  <div class="wrap mega-nav-inner">
+    <a href="#">Plumbing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+    <a href="#">Sewer &amp; Drain <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+    <a href="#">Water Heaters <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+    <a href="#">Boilers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+    <a href="#">Emergency <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+    <a href="#">Membership <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-eyebrow">Serving Cedar Grove since 1986</span>
+      <h1 class="fx-words">Nobody answers the phone like we do!<sup>®</sup></h1>
+      <p class="hero-lede fx-row" data-row-delay="500">De Vito Plumbing &amp; Heating has been privileged to serve Cedar Grove and Essex County families for nearly four decades. Family-owned, family-run, family-accountable.</p>
+      <div class="hero-actions fx-row" data-row-delay="700">
+        <a href="tel:+19735711411" class="btn-magenta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Schedule Online
+        </a>
+        <a href="tel:+19735711411" class="btn-phone-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (973) 571-1411
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual-wrap">
+      <div class="hero-wedge-1"></div>
+      <!-- [SPEC: replace with real photo of De Vito work van OR Frank De Vito with truck] -->
+      <div class="hero-visual fx-row" data-row-delay="300" style="background-image:url('https://demos.slatepress.co/_assets/plumbers/plumber_truck_mobile_002.jpg')"></div>
+      <div class="hero-rating-badge fx-row" data-row-delay="600">
+        <span class="rating-num">4.8</span>
+        <span class="rating-stars">★★★★★</span>
+        <span class="rating-meta">out of 38 reviews</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="offers" id="offers">
+  <div class="wrap">
+    <div class="offers-head">
+      <span class="eyebrow on-dark">Current offers</span>
+      <h2 class="fx-letters">Check out our April specials!</h2>
+    </div>
+    <div class="offers-grid">
+      <div class="offer fx-row" data-row-delay="0">
+        <div class="offer-amt"><small>$</small>49</div>
+        <div class="offer-title">Drain Tune-Up</div>
+        <div class="offer-fine">Some restrictions apply. Cannot be combined. Through 5/31/26.</div>
+        <div class="offer-cta"><a href="tel:+19735711411">Schedule <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="offer fx-row" data-row-delay="120">
+        <div class="offer-amt"><small>$</small>500<span style="display:block;font-size:14px;color:var(--ink);font-weight:700;font-style:normal">OFF</span></div>
+        <div class="offer-title">New Water Heater</div>
+        <div class="offer-fine">Tankless or traditional. Cannot be combined. Through 5/31/26.</div>
+        <div class="offer-cta"><a href="tel:+19735711411">Schedule <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="offer fx-row" data-row-delay="240">
+        <div class="offer-amt">FREE</div>
+        <div class="offer-title">In-Home Estimate</div>
+        <div class="offer-fine">No-charge written estimate before any work begins. Inside service area.</div>
+        <div class="offer-cta"><a href="tel:+19735711411">Schedule <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="offer fx-row" data-row-delay="360">
+        <div class="offer-amt"><span class="pct">15</span><small>%</small><span style="display:block;font-size:14px;color:var(--ink);font-weight:700;font-style:normal">OFF</span></div>
+        <div class="offer-title">Senior Discount</div>
+        <div class="offer-fine">15% off any service for residents age 65+. Mention when you call.</div>
+        <div class="offer-cta"><a href="tel:+19735711411">Schedule <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="services-head">
+      <span class="eyebrow">Our services</span>
+      <h2 class="fx-letters">Plumbing, drains, water heaters, &amp; boilers.</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc fx-row" data-row-delay="0">
+        <div class="svc-icon has-photo"><img src="../_assets/plumbers/pressure_water_line_001.jpg" alt="Emergency plumbing — pressurized water line work"></div>
+        <h3>Emergency plumbing</h3>
+        <p>Leaks, burst pipes, no-water situations. 24 hours, every day, holidays included.</p>
+        <a href="tel:+19735711411" class="svc-link">Call now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc fx-row" data-row-delay="100">
+        <div class="svc-icon has-photo"><img src="../_assets/plumbers/plumber_water_heater_repair_001.jpg" alt="Plumber installing a water heater"></div>
+        <h3>Water heater install</h3>
+        <p>Tankless and traditional. Repair, replacement, new install. Most jobs same-day.</p>
+        <a href="tel:+19735711411" class="svc-link">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc fx-row" data-row-delay="200">
+        <div class="svc-icon has-photo"><img src="../_assets/plumbers/plumber_heater_001.jpg" alt="Boiler service — plumber working on a heating unit"></div>
+        <h3>Boiler service</h3>
+        <p>Diagnose, repair, replace. Heat back on without surprises on the bill.</p>
+        <a href="tel:+19735711411" class="svc-link">Schedule <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc fx-row" data-row-delay="300">
+        <div class="svc-icon has-photo"><img src="../_assets/plumbers/plumber_unclogging_drain_001.jpg" alt="Drain cleaning — plumber clearing a clogged drain"></div>
+        <h3>Drain cleaning</h3>
+        <p>Clogged drains, slow sinks, main-line backups — diagnosed and cleared the same day.</p>
+        <a href="tel:+19735711411" class="svc-link">Call us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc fx-row" data-row-delay="400">
+        <div class="svc-icon has-photo"><img src="../_assets/plumbers/plumber_copper_pipe_closeup_001.jpg" alt="Pipe repair — copper pipe close-up"></div>
+        <h3>Pipe repair</h3>
+        <p>Burst, leaking, or corroded pipes — repaired or replaced cleanly.</p>
+        <a href="tel:+19735711411" class="svc-link">Diagnose <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc fx-row" data-row-delay="500">
+        <div class="svc-icon has-photo"><img src="../_assets/plumbers/plumber_faucet_installation_001.jpg" alt="Toilets and faucets — plumber installing a faucet"></div>
+        <h3>Toilets &amp; faucets</h3>
+        <p>Running toilets, dripping faucets, broken handles fixed in one visit.</p>
+        <a href="tel:+19735711411" class="svc-link">Book it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="member" id="member">
+  <div class="wrap member-grid">
+    <div>
+      <span class="eyebrow on-dark">DMP Member</span>
+      <h2 class="fx-letters">De Vito Maintenance Plan <em>membership.</em></h2>
+      <p>Let Team De Vito be your home concierge. Annual maintenance plan for Cedar Grove neighbors. One yearly inspection of plumbing, water heater, and boiler — plus 15% off, priority dispatch, and a transferable warranty.</p>
+      <a href="tel:+19735711411" class="btn-magenta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>
+        Become a Member
+      </a>
+      <div class="member-pills">
+        <div class="mp fx-row" data-row-delay="0"><div class="mp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><h4>Peace of Mind</h4><p>Here when you need us most</p></div></div>
+        <div class="mp fx-row" data-row-delay="100"><div class="mp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div><div><h4>More Savings</h4><p>15% discount off of service</p></div></div>
+        <div class="mp fx-row" data-row-delay="200"><div class="mp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h12"/></svg></div><div><h4>Transferable</h4><p>Take it or leave it when you move</p></div></div>
+        <div class="mp fx-row" data-row-delay="300"><div class="mp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><h4>100% Guarantee</h4><p>Industry's best warranties included</p></div></div>
+      </div>
+    </div>
+    <!-- [SPEC: replace with real photo of Frank De Vito working on a boiler/HVAC unit] -->
+    <!-- v1.1 patch 2026-04-27 (revised): 4239013 was hands-only (failed § 4); first try 32588548 also failed Chrome verification (face cut off, Cyrillic appliance-repair branding, ambiguous trade). Final pick: 8486971 — Chrome-verified plumber in white hard hat + high-vis vest actively drilling into wall. Distinct from About (8486928) and Final CTA (8486978). -->
+    <div class="member-img fx-row" data-row-delay="200" style="background-image:url('https://demos.slatepress.co/_assets/plumbers/construction_worker_man_clipboard_001.jpg')">
+      <span class="member-img-badge"><span class="star">★</span> DMP CEDAR GROVE</span>
+    </div>
+  </div>
+</section>
+
+<section class="experience">
+  <div class="wrap">
+    <div class="experience-head">
+      <span class="eyebrow">The De Vito experience</span>
+      <h2 class="fx-letters">Award-winning service &amp; <em style="font-style:italic;color:var(--magenta)">support.</em></h2>
+      <p>Our team has been recognized by the industry for our exceptional service and customer-first approach. Every job backed by extensive warranties and the De Vito family name.</p>
+    </div>
+    <div class="guarantees">
+      <div class="gua fx-row" data-row-delay="0">
+        <div class="gua-icon"><svg viewBox="0 0 72 72" fill="none" stroke="currentColor"><circle cx="36" cy="36" r="28" stroke-dasharray="4 3"/><path d="M28 36l6 6 12-12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>100% Satisfaction Guaranteed</h4>
+        <p>Our work is backed by extensive warranties</p>
+      </div>
+      <div class="gua fx-row" data-row-delay="100">
+        <div class="gua-icon"><svg viewBox="0 0 72 72" fill="none" stroke="currentColor"><rect x="14" y="30" width="32" height="20" rx="2"/><circle cx="22" cy="54" r="4"/><circle cx="44" cy="54" r="4"/><path d="M46 36l8-2 8 8v8h-16M14 30l4-12h22l4 12"/></svg></div>
+        <h4>Fast, Reliable Service</h4>
+        <p>Our team is here when you need us most</p>
+      </div>
+      <div class="gua fx-row" data-row-delay="200">
+        <div class="gua-icon"><svg viewBox="0 0 72 72" fill="none" stroke="currentColor"><circle cx="36" cy="36" r="22"/><path d="M36 24v6M36 42v6M28 36h-4M48 36h-4" stroke-width="2"/><text x="36" y="42" font-size="20" font-weight="800" text-anchor="middle" fill="currentColor" stroke="none">$</text></svg></div>
+        <h4>Affordable Rates &amp; Financing</h4>
+        <p>Flexible &amp; customizable payment options</p>
+      </div>
+      <div class="gua fx-row" data-row-delay="300">
+        <div class="gua-icon"><svg viewBox="0 0 72 72" fill="none" stroke="currentColor"><path d="M36 12L18 22v14c0 12 10 22 18 24 8-2 18-12 18-24V22z"/><path d="M28 38l6 6 12-12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>Trusted Technicians</h4>
+        <p>Background checked &amp; approved techs</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-img-wrap fx-row">
+      <span class="about-since">Since 1986</span>
+      <!-- [SPEC: replace with real photo of De Vito family / shop / Frank Sr. with truck] -->
+      <!-- v1.1 patch 2026-04-27: previous 8961036 was a MOUNTAIN LANDSCAPE (mis-tagged in verified-stock-ids.json as worker_portrait_male_older / worker_portrait_male_middle — total category-coding failure). Swapped to 8486928 (plumber portrait). Library entry removed, audit pending. NEEDS VISUAL VERIFICATION IN CHROME BEFORE RE-DEPLOY. -->
+      <div class="about-img" style="background-image:url('https://demos.slatepress.co/_assets/plumbers/construction_worker_man_arms_folded_002.jpg')"></div>
+    </div>
+    <div>
+      <span class="eyebrow">About De Vito</span>
+      <h2 class="fx-letters">Cedar Grove plumbing, heating, &amp; drain since <em style="font-style:italic;color:var(--magenta)">1986.</em></h2>
+      <p>With nearly four decades of industry experience, De Vito Plumbing &amp; Heating has become the leading choice for residential plumbing, heating, and water heater services in Essex County. Our team is committed to your complete comfort, offering peace of mind and outstanding value with every service. We are proudly family-owned, family-run, and accountable to our Cedar Grove neighbors.</p>
+      <div class="about-stats">
+        <div class="about-stat fx-row" data-row-delay="0"><div class="about-stat-num">38+</div><div class="about-stat-label">YEARS EXPERIENCE</div></div>
+        <div class="about-stat fx-row" data-row-delay="100"><div class="about-stat-num">4.8</div><div class="about-stat-label">AVG GOOGLE REVIEW</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="awards">
+  <div class="wrap">
+    <div class="awards-grid">
+      <div class="aw fx-row" data-row-delay="0"><span class="badge">Best of<br>Essex 2024</span><span class="yr">PEOPLE'S CHOICE</span></div>
+      <div class="aw fx-row" data-row-delay="80"><span class="badge">★★★★★</span><span class="yr">38 GOOGLE REVIEWS</span></div>
+      <div class="aw fx-row" data-row-delay="160"><span class="badge">BBB A+</span><span class="yr">ACCREDITED</span></div>
+      <div class="aw fx-row" data-row-delay="240"><span class="badge">NJ LICENSED</span><span class="yr">MASTER PLUMBER</span></div>
+      <div class="aw fx-row" data-row-delay="320"><span class="badge">Angi Super</span><span class="yr">SERVICE 2024</span></div>
+      <div class="aw fx-row" data-row-delay="400"><span class="badge">Local Hero</span><span class="yr">CEDAR GROVE 2023</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="area" id="area">
+  <div class="wrap area-grid">
+    <!-- v1.2 Google Maps embed (replaces hand-built SVG region map). Anderson DNA layout: 1:1 framed iframe with magenta-bordered town overlay. Centered via lat/long on Cedar Grove NJ (40.8526, -74.2287) at zoom 12 — covers Verona / Caldwell / West Caldwell / Montclair / Little Falls / Cedar Grove. No API key needed. NOTE: NO fx-row on this element — the map should never animate-reveal. -->
+    <div class="area-map">
+      <iframe
+        src="https://maps.google.com/maps?ll=40.8526,-74.2287&amp;z=12&amp;output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="De Vito Plumbing service area — Cedar Grove NJ and surrounding Essex County">
+      </iframe>
+      <div class="area-map-overlay">
+        <span class="area-map-overlay-eyebrow">★ Service area</span>
+        Cedar Grove · Verona · Caldwell · West Caldwell · Montclair · Little Falls
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow">Service area</span>
+      <h2 class="fx-letters">Serving Cedar Grove &amp; Essex County <em style="font-style:italic;color:var(--magenta)">since 1986.</em></h2>
+      <p>Cedar Grove (HQ) plus Verona, Caldwell, West Caldwell, Montclair, and Little Falls. Our team of dispatchers and fleet of fully-stocked trucks allow us to serve homeowners throughout the greater Essex County area.</p>
+      <div class="area-actions">
+        <a href="tel:+19735711411" class="btn-magenta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Schedule Online
+        </a>
+        <a href="tel:+19735711411" class="btn-phone-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (973) 571-1411
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="reviews-head">
+      <span class="eyebrow">What our customers are saying</span>
+      <h2 class="fx-letters">38+ five-star Google reviews.</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="rev fx-row" data-row-delay="0">
+        <div class="rev-head">
+          <div class="rev-avatar" style="background-image:url('https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200')"></div>
+          <div>
+            <div class="rev-name">Gabriella B. <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+            <div class="rev-meta">8 months ago on <svg viewBox="0 0 24 24"><path fill="#4285f4" d="M21.6 12.2c0-.7-.1-1.3-.2-2H12v3.8h5.4c-.2 1.2-.9 2.2-2 2.9v2.4h3.2c1.9-1.7 3-4.3 3-7.1z"/><path fill="#34a853" d="M12 22c2.7 0 5-1 6.6-2.6l-3.2-2.4c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.5C4.7 19.6 8.1 22 12 22z"/><path fill="#fbbc04" d="M6.4 13.9a6 6 0 010-3.9V7.5H3.1a10 10 0 000 9z"/><path fill="#ea4335" d="M12 5.9c1.5 0 2.8.5 3.9 1.5l2.9-2.9C17 2.9 14.7 2 12 2 8.1 2 4.7 4.4 3.1 7.5l3.3 2.5c.8-2.3 3-4.1 5.6-4.1z"/></svg> Google</div>
+          </div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p>"I had a leak and needed help urgently. The gentleman answered right away and plumbers arrived at my home quickly. Professional, efficient, got the job done."</p>
+        <a href="#" class="rev-readmore">Read more</a>
+      </div>
+      <div class="rev fx-row" data-row-delay="120">
+        <div class="rev-head">
+          <div class="rev-avatar" style="background:#e74c3c">C</div>
+          <div>
+            <div class="rev-name">Carol S. <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+            <div class="rev-meta">1 year ago on <svg viewBox="0 0 24 24"><path fill="#4285f4" d="M21.6 12.2c0-.7-.1-1.3-.2-2H12v3.8h5.4c-.2 1.2-.9 2.2-2 2.9v2.4h3.2c1.9-1.7 3-4.3 3-7.1z"/><path fill="#34a853" d="M12 22c2.7 0 5-1 6.6-2.6l-3.2-2.4c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.5C4.7 19.6 8.1 22 12 22z"/><path fill="#fbbc04" d="M6.4 13.9a6 6 0 010-3.9V7.5H3.1a10 10 0 000 9z"/><path fill="#ea4335" d="M12 5.9c1.5 0 2.8.5 3.9 1.5l2.9-2.9C17 2.9 14.7 2 12 2 8.1 2 4.7 4.4 3.1 7.5l3.3 2.5c.8-2.3 3-4.1 5.6-4.1z"/></svg> Google</div>
+          </div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p>"Leaking water tank late in the evening — super responsive that night, new water tank installed by first thing the next morning. Friendly people. Definitely call them again."</p>
+        <a href="#" class="rev-readmore">Read more</a>
+      </div>
+      <div class="rev fx-row" data-row-delay="240">
+        <div class="rev-head">
+          <div class="rev-avatar" style="background:#9c27b0">J</div>
+          <div>
+            <div class="rev-name">James M. <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+            <div class="rev-meta">2 weeks ago on <svg viewBox="0 0 24 24"><path fill="#4285f4" d="M21.6 12.2c0-.7-.1-1.3-.2-2H12v3.8h5.4c-.2 1.2-.9 2.2-2 2.9v2.4h3.2c1.9-1.7 3-4.3 3-7.1z"/><path fill="#34a853" d="M12 22c2.7 0 5-1 6.6-2.6l-3.2-2.4c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.5C4.7 19.6 8.1 22 12 22z"/><path fill="#fbbc04" d="M6.4 13.9a6 6 0 010-3.9V7.5H3.1a10 10 0 000 9z"/><path fill="#ea4335" d="M12 5.9c1.5 0 2.8.5 3.9 1.5l2.9-2.9C17 2.9 14.7 2 12 2 8.1 2 4.7 4.4 3.1 7.5l3.3 2.5c.8-2.3 3-4.1 5.6-4.1z"/></svg> Google</div>
+          </div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p>"Boiler went out on the coldest night of the year. Frank picked up at 11pm and had a tech at my door by 7am. Heat back on by 9. These guys saved my pipes from freezing."</p>
+        <a href="#" class="rev-readmore">Read more</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap final-inner">
+    <!-- [SPEC: replace with real photo of De Vito painted fleet van — KILLER move per the thesis] -->
+    <!-- v1.1 patch 2026-04-27: previous 4501779 was a bare water-heater tank — failed § 4 (every-photo rule). Swapped to 8486978 (plumber/work shot). NEEDS VISUAL VERIFICATION IN CHROME BEFORE RE-DEPLOY. -->
+    <div class="final-van fx-row" style="background-image:url('https://demos.slatepress.co/_assets/plumbers/construction_worker_man_clipboard_004.jpg')"></div>
+    <div>
+      <p class="final-tagline">Nobody answers the phone <em>like we do!</em><sup style="font-size:.4em;color:var(--gold)">®</sup></p>
+      <p class="final-meta"><strong>Open 24 Hours</strong> · 24/7 Emergency Support Available</p>
+      <div class="final-actions">
+        <a href="tel:+19735711411" class="btn-magenta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Schedule Online
+        </a>
+        <a href="tel:+19735711411" style="display:inline-flex;align-items:center;gap:.5rem;color:#fff;border:1.5px solid rgba(255,255,255,.4);padding:1.05rem 1.6rem;border-radius:999px;font-weight:700;font-size:15px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (973) 571-1411
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-cols">
+      <div>
+        <h5>OUR SERVICES</h5>
+        <a href="#">Plumbing</a>
+        <a href="#">Sewer &amp; Drains</a>
+        <a href="#">Water Heaters</a>
+        <a href="#">Boiler Service</a>
+        <a href="#">Emergency 24/7</a>
+      </div>
+      <div>
+        <h5>OUR LOCATIONS</h5>
+        <a href="#"><strong style="color:#fff">Cedar Grove (HQ)</strong><br>452 Ridge Rd<br>Cedar Grove, NJ 07009<br>(973) 571-1411</a>
+      </div>
+      <div>
+        <h5>QUICK LINKS</h5>
+        <a href="#">Service Areas</a>
+        <a href="#">Specials</a>
+        <a href="#">Membership (DMP)</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© De Vito Plumbing &amp; Heating · Family-Run Since 1986 · NJ Licensed Master Plumber</span>
+      <span class="foot-credit">Site by <a href="https://slatepress.co" target="_blank" rel="noopener">Slatepress</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="disclaimer">Pricing illustrative. Final pricing confirmed in your written estimate before any work begins. Demo by Slatepress.</div>
+
+<script>
+(function(){
+  function splitWords(root){
+    var walk=function(parent){var out=document.createDocumentFragment();
+      for(var i=0;i<parent.childNodes.length;i++){var node=parent.childNodes[i];
+        if(node.nodeType===Node.TEXT_NODE){var words=node.textContent.split(/(\s+)/);
+          for(var j=0;j<words.length;j++){var w=words[j];
+            if(/^\s+$/.test(w)){out.appendChild(document.createTextNode(w));continue;}
+            if(w==="")continue;
+            var word=document.createElement('span');word.className='word';
+            word.style.setProperty('--i',root._wordIdx++);
+            var inner=document.createElement('span');inner.className='word-inner';inner.textContent=w;
+            word.appendChild(inner);out.appendChild(word);
+          }
+        } else if(node.nodeType===Node.ELEMENT_NODE){
+          var clone=node.cloneNode(false);clone.appendChild(walk(node));out.appendChild(clone);
+        }
+      }
+      return out;
+    };
+    root._wordIdx=0;var replaced=walk(root);root.innerHTML='';root.appendChild(replaced);
+  }
+  function splitLetters(root){
+    var text=root.textContent;root.textContent='';var i=0;
+    var parts=text.split(/(\s+)/);
+    for(var p=0;p<parts.length;p++){var seg=parts[p];
+      if(seg===''||/^\s+$/.test(seg)){if(seg!=='')root.appendChild(document.createTextNode(seg));continue;}
+      var wordWrap=document.createElement('span');wordWrap.className='letter-word';
+      wordWrap.style.display='inline-block';wordWrap.style.whiteSpace='nowrap';
+      for(var k=0;k<seg.length;k++){var ch=seg[k];
+        var span=document.createElement('span');span.className='letter';
+        span.style.setProperty('--i',i++);span.textContent=ch;wordWrap.appendChild(span);
+      }
+      root.appendChild(wordWrap);
+    }
+  }
+  function reveal(el){if(!el.classList.contains('in'))el.classList.add('in');}
+  function inViewport(el,fudge){
+    var r=el.getBoundingClientRect();
+    return r.top<(window.innerHeight||document.documentElement.clientHeight)*(fudge||1)&&r.bottom>0;
+  }
+
+  document.querySelectorAll('.fx-words').forEach(splitWords);
+  document.querySelectorAll('.fx-letters').forEach(splitLetters);
+  document.querySelectorAll('.fx-row').forEach(function(el){
+    var d=el.getAttribute('data-row-delay');if(d)el.style.setProperty('--row-delay',d+'ms');
+  });
+
+  var all=document.querySelectorAll('.fx-words, .fx-letters, .fx-row');
+
+  // Path 1: IntersectionObserver
+  if('IntersectionObserver' in window){
+    try{
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){if(e.isIntersecting){reveal(e.target);io.unobserve(e.target);}});
+      },{threshold:0.15,rootMargin:'0px 0px -10% 0px'});
+      all.forEach(function(el){io.observe(el);});
+    }catch(err){}
+  }
+
+  // Path 2: timeout fallback (700ms) — reveal anything in viewport that IO missed
+  setTimeout(function(){
+    all.forEach(function(el){
+      if(!el.classList.contains('in')&&inViewport(el,1.05)) reveal(el);
+    });
+  },700);
+
+  // Path 3: scroll fallback — catch elements coming into view as user scrolls
+  var scrollHandler=function(){
+    all.forEach(function(el){
+      if(!el.classList.contains('in')&&inViewport(el,1.0)) reveal(el);
+    });
+  };
+  window.addEventListener('scroll',scrollHandler,{passive:true});
+
+  // Path 4: hard guarantee (2.5s) — reveal EVERYTHING regardless of viewport
+  setTimeout(function(){all.forEach(reveal);},2500);
+})();
+</script>
+
+</body>
+</html>

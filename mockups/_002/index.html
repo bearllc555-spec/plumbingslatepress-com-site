@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>De Vito Plumbing &amp; Heating — Cedar Grove, NJ Plumber, Open 24/7</title>
+  <meta name="description" content="De Vito Plumbing &amp; Heating is a Cedar Grove, NJ family plumber answering calls 24/7. Emergency leaks, water heaters, boilers, drain cleaning, pipe repair. (973) 571-1411.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#1e3a8a;
+      --navy-2:#1e40af;
+      --navy-dark:#172554;
+      --navy-deep:#0f1d4a;
+      --accent:#0891b2;          /* teal — water-themed */
+      --accent-2:#06b6d4;        /* cyan */
+      --accent-light:#22d3ee;
+      --accent-glow:rgba(8,145,178,.18);
+      --text:#0f172a;
+      --text-soft:#334155;
+      --muted:#64748b;
+      --bg:#ffffff;
+      --surface:#f8fafc;
+      --surface-2:#f1f5f9;
+      --border:#e2e8f0;
+      --star:#f59e0b;
+      --maxw:1240px;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--bg);color:var(--text);
+      font-family:'Inter',system-ui,-apple-system,sans-serif;
+      font-size:17px;line-height:1.6;
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+    em{font-style:normal;color:var(--accent)}
+
+    /* === motion effect engines === */
+    .fx-words .word{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+    .fx-words .word-inner{display:inline-block;transform:translateY(110%);transition:transform .9s cubic-bezier(.215,.61,.355,1);transition-delay:calc(var(--i,0) * 70ms)}
+    .fx-words.in .word-inner{transform:translateY(0)}
+    .fx-letters .letter{display:inline-block;opacity:0;transform:translateY(.5em);transition:opacity .5s ease, transform .5s cubic-bezier(.215,.61,.355,1);transition-delay:calc(var(--i,0) * 22ms)}
+    .fx-letters.in .letter{opacity:1;transform:translateY(0)}
+    .fx-row{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s cubic-bezier(.215,.61,.355,1);transition-delay:var(--row-delay,0ms)}
+    .fx-row.in{opacity:1;transform:none}
+    @media(prefers-reduced-motion:reduce){.fx-words .word-inner,.fx-letters .letter,.fx-row{transition:none;transform:none;opacity:1}}
+
+    /* ================= NAV ================= */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px;gap:1rem}
+    .brand{display:flex;align-items:center;gap:.75rem;font-weight:800;font-size:18px;letter-spacing:-.02em;color:var(--text)}
+    .brand-mark{
+      width:46px;height:46px;border-radius:11px;
+      background:linear-gradient(140deg,var(--navy),var(--navy-dark));
+      color:#fff;display:flex;align-items:center;justify-content:center;
+      font-weight:800;font-size:22px;letter-spacing:-.04em;
+      box-shadow:0 6px 16px rgba(30,58,138,.28);
+    }
+    .brand-tag{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+    .nav-links{display:flex;align-items:center;gap:32px;font-size:14px;font-weight:500;color:var(--text-soft)}
+    .nav-links a{transition:color .25s}
+    .nav-links a:hover{color:var(--accent)}
+    .nav-cta{
+      display:inline-flex;align-items:center;gap:.55rem;
+      background:var(--accent);color:#fff;
+      padding:.75rem 1.25rem;border-radius:11px;
+      font-weight:700;font-size:14px;
+      box-shadow:0 6px 16px rgba(8,145,178,.32);
+      transition:background .25s,transform .25s,box-shadow .25s;
+    }
+    .nav-cta:hover{background:#0e7490;transform:translateY(-1px);box-shadow:0 8px 20px rgba(8,145,178,.42)}
+    .nav-cta svg{width:14px;height:14px}
+    @media(max-width:900px){.nav-links{display:none}}
+    @media(max-width:600px){.nav-cta .lbl{display:none}.brand-tag{display:none}.brand{font-size:16px}.brand-mark{width:42px;height:42px;font-size:20px}}
+
+    /* ================= HERO (full-bleed people photo + overlay) ================= */
+    .hero{
+      position:relative;min-height:88vh;overflow:hidden;
+      display:flex;align-items:center;
+      background:#0a1638;
+    }
+    .hero-bg{
+      position:absolute;inset:0;
+      background-image:
+        linear-gradient(120deg, rgba(15,29,74,.92) 0%, rgba(15,29,74,.55) 55%, rgba(15,29,74,.30) 100%),
+        url('https://images.pexels.com/photos/8486944/pexels-photo-8486944.jpeg?auto=compress&cs=tinysrgb&w=1800');
+      background-size:cover;background-position:center;
+    }
+    .hero-bg::after{
+      content:"";position:absolute;inset:0;
+      background:radial-gradient(ellipse 800px 600px at 90% 20%, rgba(34,211,238,.18), transparent 60%);
+    }
+    .hero-content{position:relative;z-index:2;padding:120px 0 100px;width:100%}
+    .kicker{display:inline-flex;align-items:center;gap:.7rem;margin-bottom:32px;color:var(--accent-light);font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+    .kicker-dot{width:8px;height:8px;border-radius:50%;background:var(--accent-2);animation:kickerpulse 2.4s ease-in-out infinite}
+    @keyframes kickerpulse{0%,100%{box-shadow:0 0 0 0 rgba(6,182,212,.7);transform:scale(.9)}50%{box-shadow:0 0 0 12px rgba(6,182,212,0);transform:scale(1.1)}}
+    h1{
+      font-family:'Inter',sans-serif;font-size:clamp(44px,6vw,82px);font-weight:800;
+      line-height:1.02;letter-spacing:-.04em;margin:0 0 28px;max-width:18ch;color:#fff;
+    }
+    h1 em{color:var(--accent-light)}
+    .lede{font-size:clamp(18px,1.4vw,21px);line-height:1.6;color:rgba(255,255,255,.82);max-width:60ch;margin:0 0 40px;font-weight:400}
+    .hero-cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:28px}
+    .btn-primary{
+      display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:#fff;
+      padding:18px 30px;border-radius:12px;font-weight:700;font-size:16px;
+      box-shadow:0 10px 28px rgba(8,145,178,.42);
+      transition:background .25s,transform .25s,box-shadow .25s;
+    }
+    .btn-primary:hover{background:#0e7490;transform:translateY(-2px);box-shadow:0 14px 36px rgba(8,145,178,.5)}
+    .btn-primary svg{width:18px;height:18px}
+    .btn-ghost{
+      display:inline-flex;align-items:center;gap:.5rem;color:#fff;
+      padding:18px 22px;font-weight:600;font-size:15px;
+      background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;
+      backdrop-filter:blur(8px);
+      transition:background .25s,border-color .25s,transform .25s;
+    }
+    .btn-ghost:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.28);transform:translateY(-1px)}
+    .urgency{font-size:15px;color:var(--accent-light);font-weight:600;max-width:50ch;margin:0;line-height:1.5;display:flex;align-items:center;gap:8px}
+    .urgency::before{content:"";width:24px;height:1px;background:var(--accent-light);display:inline-block}
+
+    /* hero floating estimate card */
+    .estimate-card{
+      position:absolute;right:max(28px,calc(50% - 580px));bottom:80px;z-index:3;
+      width:340px;background:#fff;border-radius:16px;padding:28px 26px;
+      box-shadow:0 24px 60px rgba(0,0,0,.25);
+    }
+    .est-mono{font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;display:block}
+    .est-card-title{font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--text);margin:0 0 16px}
+    .est-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text-soft)}
+    .est-row:last-of-type{border-bottom:none}
+    .est-row svg{width:18px;height:18px;color:var(--accent);flex-shrink:0}
+    .est-row strong{color:var(--text);font-weight:600}
+    .est-cta{display:block;text-align:center;margin-top:18px;padding:14px 18px;background:var(--navy);color:#fff;border-radius:10px;font-weight:700;font-size:14px;transition:background .25s,transform .25s}
+    .est-cta:hover{background:var(--navy-dark);transform:translateY(-1px)}
+    @media(max-width:1100px){.estimate-card{display:none}}
+
+    /* trust strip */
+    .trust-strip{background:#fff;border-bottom:1px solid var(--border);padding:32px 0}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;align-items:center}
+    .trust-item{display:flex;align-items:center;gap:14px}
+    .trust-icon{width:44px;height:44px;border-radius:11px;background:linear-gradient(140deg,#cffafe,#a5f3fc);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .trust-icon svg{width:22px;height:22px}
+    .trust-text strong{display:block;font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.01em}
+    .trust-text span{font-size:12px;color:var(--muted);font-weight:500}
+    @media(max-width:880px){.trust-grid{grid-template-columns:repeat(2,1fr);gap:24px}}
+
+    /* ================= SECTIONS ================= */
+    .section{padding:120px 0}
+    .services{background:var(--surface)}
+    .reviews{background:var(--surface-2)}
+    .area-hours{background:#fff;border-top:1px solid var(--border)}
+    .moments{background:#fff;border-top:1px solid var(--border)}
+
+    .section-head{margin-bottom:64px;max-width:820px}
+    .section-mono{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+    h2{font-family:'Inter',sans-serif;font-size:clamp(34px,4.4vw,58px);font-weight:800;line-height:1.05;letter-spacing:-.035em;margin:0;color:var(--text)}
+
+    /* ================= SERVICES ================= */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .service{background:#fff;border:1px solid var(--border);border-radius:18px;padding:32px 28px;position:relative;overflow:hidden;transition:border-color .35s,transform .35s,box-shadow .35s}
+    .service::before{content:"";position:absolute;inset:0;background:linear-gradient(140deg,var(--accent-glow),transparent 60%);opacity:0;transition:opacity .35s}
+    .service:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 20px 40px rgba(8,145,178,.12)}
+    .service:hover::before{opacity:1}
+    .service-icon{
+      width:54px;height:54px;border-radius:14px;
+      background:linear-gradient(140deg,var(--navy),var(--navy-dark));color:#fff;
+      display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+      box-shadow:0 8px 20px rgba(30,58,138,.28);
+    }
+    .service-icon svg{width:26px;height:26px}
+    .service-num{position:absolute;top:24px;right:28px;font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--muted)}
+    .service h3{font-weight:800;font-size:21px;letter-spacing:-.02em;line-height:1.2;margin:0 0 10px;color:var(--text)}
+    .service p{margin:0 0 16px;color:var(--text-soft);font-size:15px;line-height:1.55}
+    .service-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:600;font-size:13px;transition:gap .25s,color .25s;position:relative;z-index:1}
+    .service-link:hover{color:var(--navy);gap:10px}
+    .service-link svg{width:14px;height:14px;transition:transform .25s}
+    .service:hover .service-link svg{transform:translateX(2px)}
+    @media(max-width:880px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.services-grid{grid-template-columns:1fr}}
+
+    /* ================= ABOUT ================= */
+    .about{background:#fff;border-top:1px solid var(--border)}
+    .about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:80px;align-items:center}
+    .about-image{
+      position:relative;aspect-ratio:5/6;border-radius:20px;overflow:hidden;
+      background-image:
+        linear-gradient(160deg, rgba(15,29,74,0) 0%, rgba(15,29,74,.25) 100%),
+        url('https://images.pexels.com/photos/4239035/pexels-photo-4239035.jpeg?auto=compress&cs=tinysrgb&w=1200');
+      background-size:cover;background-position:center;
+      box-shadow:0 30px 60px rgba(15,23,42,.15);
+    }
+    .about-image-overlay{
+      position:absolute;left:24px;right:24px;bottom:24px;
+      background:rgba(255,255,255,.96);backdrop-filter:blur(12px);
+      border-radius:14px;padding:20px 22px;
+      display:flex;align-items:center;gap:14px;
+    }
+    .about-image-overlay-stars{color:var(--star);font-size:14px;letter-spacing:.1em;line-height:1}
+    .about-image-overlay-text{font-size:13px;color:var(--text);font-weight:500;line-height:1.4}
+    .about-image-overlay-text strong{display:block;font-weight:700;font-size:14px;margin-bottom:2px}
+    .about-aside h2{font-size:clamp(30px,3.5vw,44px);margin-bottom:24px}
+    .about-body p{font-size:18px;line-height:1.7;color:var(--text-soft);margin:0 0 22px}
+    .about-body p strong{color:var(--text);font-weight:700}
+    .about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px;padding-top:32px;border-top:1px solid var(--border)}
+    .about-stat .num{display:block;font-size:32px;font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1}
+    .about-stat .num em{color:var(--accent)}
+    .about-stat .lbl{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-top:6px;display:block}
+    @media(max-width:980px){.about-grid{grid-template-columns:1fr;gap:48px}.about-image{max-width:520px;margin:0 auto}}
+
+    /* ================= MOMENTS — new gallery section ================= */
+    .moments-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:repeat(2,260px);gap:16px}
+    .moment{position:relative;border-radius:16px;overflow:hidden;background-size:cover;background-position:center;box-shadow:0 14px 32px rgba(15,23,42,.08)}
+    .moment::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, transparent 50%, rgba(15,29,74,.85) 100%)}
+    .moment-caption{position:absolute;left:20px;right:20px;bottom:18px;color:#fff;font-weight:600;font-size:14px;letter-spacing:-.005em;line-height:1.35;z-index:2}
+    .moment-caption span{display:block;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-light);margin-bottom:6px}
+    .moment-1{grid-column:1;grid-row:1/3;background-image:url('https://images.pexels.com/photos/8486944/pexels-photo-8486944.jpeg?auto=compress&cs=tinysrgb&w=1000')}
+    .moment-2{grid-column:2;grid-row:1;background-image:url('https://images.pexels.com/photos/6195135/pexels-photo-6195135.jpeg?auto=compress&cs=tinysrgb&w=800')}
+    .moment-3{grid-column:3;grid-row:1;background-image:url('https://images.pexels.com/photos/6195087/pexels-photo-6195087.jpeg?auto=compress&cs=tinysrgb&w=800')}
+    .moment-4{grid-column:2;grid-row:2;background-image:url('https://images.pexels.com/photos/8486945/pexels-photo-8486945.jpeg?auto=compress&cs=tinysrgb&w=800')}
+    .moment-5{grid-column:3;grid-row:2;background-image:url('https://images.pexels.com/photos/4254162/pexels-photo-4254162.jpeg?auto=compress&cs=tinysrgb&w=800')}
+    @media(max-width:880px){
+      .moments-grid{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,200px);gap:12px}
+      .moment-1{grid-column:1/3;grid-row:1}
+      .moment-2{grid-column:1;grid-row:2}
+      .moment-3{grid-column:2;grid-row:2}
+      .moment-4{grid-column:1;grid-row:3}
+      .moment-5{grid-column:2;grid-row:3}
+    }
+
+
+    /* ================= CREW — meet the team ================= */
+    .crew{background:linear-gradient(180deg,var(--surface) 0%,#fff 100%);border-top:1px solid var(--border)}
+    .crew-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .crew-card{
+      position:relative;background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;
+      transition:border-color .35s,transform .35s,box-shadow .35s;
+    }
+    .crew-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 22px 44px rgba(8,145,178,.16)}
+    .crew-photo{
+      aspect-ratio:4/5;background-size:cover;background-position:center top;
+      position:relative;
+    }
+    .crew-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(15,29,74,.55) 100%)}
+    .crew-photo-1{background-image:url('https://images.pexels.com/photos/8961036/pexels-photo-8961036.jpeg?auto=compress&cs=tinysrgb&w=900')}
+    .crew-photo-2{background-image:url('https://images.pexels.com/photos/5025639/pexels-photo-5025639.jpeg?auto=compress&cs=tinysrgb&w=900')}
+    .crew-photo-3{background-image:url('https://images.pexels.com/photos/4254165/pexels-photo-4254165.jpeg?auto=compress&cs=tinysrgb&w=900')}
+    .crew-info{padding:24px 26px 28px;position:relative}
+    .crew-role{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;display:block}
+    .crew-name{font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--text);margin:0 0 8px;line-height:1.15}
+    .crew-bio{margin:0;color:var(--text-soft);font-size:14px;line-height:1.55}
+    .crew-years{position:absolute;top:-22px;right:24px;background:var(--accent);color:#fff;padding:8px 14px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 6px 14px rgba(8,145,178,.32)}
+    @media(max-width:880px){.crew-grid{grid-template-columns:1fr;gap:20px}.crew-photo{aspect-ratio:5/4}}
+
+
+    /* ================= TOOLS STRIP (ProHauz vertical-tools motif) ================= */
+    .with-tools{position:relative}
+    .tools-strip{
+      position:absolute;left:24px;top:80px;width:88px;
+      display:flex;flex-direction:column;gap:36px;align-items:center;
+      pointer-events:none;z-index:1;
+    }
+    .tools-strip svg{width:100%;height:auto;color:var(--navy);opacity:.92;filter:drop-shadow(0 4px 10px rgba(15,29,74,.12))}
+    .tools-strip .t-cyan{color:var(--accent)}
+    .with-tools-content{padding-left:160px}
+    @media(max-width:1100px){.tools-strip{display:none}.with-tools-content{padding-left:0}}
+
+    /* ================= AVAILABLE 24/7 SECTION ================= */
+    .avail{padding:100px 0;background:linear-gradient(135deg,#0f1d4a 0%,#172554 50%,#1e3a8a 100%);color:#fff;position:relative;overflow:hidden}
+    .avail::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 700px 500px at 90% 30%,rgba(34,211,238,.16),transparent 65%);pointer-events:none}
+    .avail-inner{position:relative;z-index:2}
+    .avail .tools-strip svg{color:#22d3ee;opacity:.55;filter:none}
+    .avail-content{max-width:780px}
+    .avail-mono{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-light);margin-bottom:18px}
+    .avail h2{font-family:'Inter',sans-serif;font-size:clamp(34px,4.4vw,58px);font-weight:800;line-height:1.04;letter-spacing:-.035em;margin:0 0 24px;color:#fff}
+    .avail h2 em{color:var(--accent-light)}
+    .avail-lede{font-size:clamp(17px,1.3vw,20px);line-height:1.6;color:rgba(255,255,255,.82);margin:0 0 36px;max-width:62ch}
+    .avail-features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+    .avail-feat{padding:22px 24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;backdrop-filter:blur(8px)}
+    .avail-feat-icon{width:38px;height:38px;border-radius:10px;background:rgba(34,211,238,.15);color:var(--accent-light);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+    .avail-feat-icon svg{width:20px;height:20px}
+    .avail-feat strong{display:block;font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;letter-spacing:-.005em}
+    .avail-feat span{font-size:13px;color:rgba(255,255,255,.7);font-weight:500}
+    .avail-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:#fff;padding:18px 30px;border-radius:12px;font-weight:700;font-size:16px;box-shadow:0 10px 28px rgba(8,145,178,.45);transition:background .25s,transform .25s,box-shadow .25s}
+    .avail-cta:hover{background:#0e7490;transform:translateY(-2px);box-shadow:0 14px 36px rgba(8,145,178,.55)}
+    .avail-cta svg{width:18px;height:18px}
+    @media(max-width:760px){.avail-features{grid-template-columns:1fr;gap:14px}}
+
+    /* ================= REVIEWS — now with portrait photos ================= */
+    .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .review{padding:36px 32px;background:#fff;border:1px solid var(--border);border-radius:18px;transition:border-color .3s,transform .3s,box-shadow .3s}
+    .review:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 14px 32px rgba(8,145,178,.12)}
+    .review-stars{color:var(--star);font-size:18px;letter-spacing:.12em;margin-bottom:20px}
+    .review blockquote{font-size:18px;line-height:1.6;color:var(--text);margin:0 0 28px;font-weight:500}
+    .review-attr{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--border)}
+    .review-portrait{width:48px;height:48px;border-radius:50%;background-size:cover;background-position:center;flex-shrink:0;box-shadow:0 4px 12px rgba(15,23,42,.12)}
+    .portrait-1{background-image:url('https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=200')}
+    .portrait-2{background-image:url('https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=200')}
+    .review-name{font-weight:700;color:var(--text);font-size:15px}
+    .review-meta{font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-top:3px}
+    @media(max-width:760px){.reviews-grid{grid-template-columns:1fr}.review{padding:28px 24px}.review blockquote{font-size:17px}}
+
+    /* ================= AREA + HOURS ================= */
+    .ah-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+    .ah-block h2{font-size:clamp(26px,2.8vw,38px);margin-bottom:32px}
+    .area-list{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+    .area-list li{font-size:14px;font-weight:600;padding:12px 20px;background:var(--surface);border:1px solid var(--border);border-radius:999px;color:var(--text);transition:background .25s,border-color .25s,color .25s,transform .25s}
+    .area-list li:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-1px)}
+    .hours-list{margin:0;padding:0;list-style:none}
+    .hours-list li{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--text-soft)}
+    .hours-list li:last-child{border-bottom:none}
+    .hours-list .day{font-weight:700;color:var(--text)}
+    .hours-list .time{color:var(--accent);font-size:15px;font-weight:700}
+    .hours-note{margin-top:24px;padding:18px 22px;background:linear-gradient(135deg,#ecfeff,#cffafe);border-left:3px solid var(--accent);border-radius:8px;font-size:16px;color:var(--text);line-height:1.5;font-weight:600}
+    .hours-note em{color:var(--accent);font-weight:800}
+    @media(max-width:880px){.ah-grid{grid-template-columns:1fr;gap:48px}}
+
+    /* ================= FINAL CTA ================= */
+    .final{padding:0;position:relative;overflow:hidden;color:#fff;min-height:560px;display:flex;align-items:center;text-align:center}
+    .final-bg{
+      position:absolute;inset:0;
+      background-image:
+        linear-gradient(135deg, rgba(15,29,74,.92), rgba(23,37,84,.85)),
+        url('https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1800');
+      background-size:cover;background-position:center;
+    }
+    .final-bg::after{content:"";position:absolute;inset:-100px;background:radial-gradient(ellipse 800px 500px at 50% 50%,rgba(34,211,238,.22),transparent 65%);pointer-events:none}
+    .final-inner{position:relative;z-index:2;max-width:820px;margin:0 auto;padding:140px 28px}
+    .final .section-mono{color:var(--accent-light);margin-bottom:24px}
+    .final h2{font-size:clamp(40px,5.4vw,72px);font-weight:800;line-height:1.02;letter-spacing:-.04em;margin:0 0 36px;color:#fff}
+    .final h2 em{color:var(--accent-light)}
+    .final-phone{display:inline-flex;align-items:center;gap:14px;font-size:clamp(28px,3.8vw,46px);font-weight:800;letter-spacing:-.025em;color:#fff;padding:22px 40px;background:var(--accent);border-radius:14px;box-shadow:0 16px 40px rgba(8,145,178,.5);transition:background .25s,transform .25s,box-shadow .25s}
+    .final-phone:hover{background:#0e7490;transform:translateY(-2px);box-shadow:0 20px 50px rgba(8,145,178,.6)}
+    .final-phone svg{width:30px;height:30px}
+    .final-sub{margin-top:32px;color:rgba(255,255,255,.78);font-size:17px;font-weight:500}
+
+    /* ================= FOOTER ================= */
+    footer{padding:48px 0;background:#fff;border-top:1px solid var(--border)}
+    .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;font-size:13px}
+    .foot-mono{color:var(--muted);font-size:12px;font-weight:500;letter-spacing:.05em}
+    .foot-credit{color:var(--muted)}
+    .foot-credit a{color:var(--navy);font-weight:700;transition:color .25s}
+    .foot-credit a:hover{color:var(--accent)}
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">D</span>
+      <span>De Vito Plumbing &amp; Heating
+        <span class="brand-tag">Cedar Grove · Family-run</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#avail">24/7</a>
+      <a href="#about">About</a>
+      <a href="#crew">Crew</a>
+      <a href="#moments">Our work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Service Area</a>
+    </div>
+    <a href="tel:+19735711411" class="nav-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="lbl">(973) 571-1411</span>
+    </a>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-content">
+    <div class="kicker fx-row">
+      <span class="kicker-dot"></span>
+      <span>Cedar Grove · Open 24 hours · Day or night</span>
+    </div>
+    <h1 class="fx-words">Cedar Grove plumbing, <em>answered around the clock.</em></h1>
+    <p class="lede fx-row" data-row-delay="500">Burst pipes don't wait for business hours. Neither do we. De Vito Plumbing &amp; Heating takes calls 24 hours a day — and most repairs are done by morning.</p>
+    <div class="hero-cta-row fx-row" data-row-delay="650">
+      <a href="tel:+19735711411" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call (973) 571-1411
+      </a>
+      <a href="#services" class="btn-ghost">See what we handle →</a>
+    </div>
+    <p class="urgency fx-row" data-row-delay="800">Every minute a leak runs is more damage. Don't wait for morning — call now.</p>
+  </div>
+
+  <aside class="estimate-card fx-row" data-row-delay="900">
+    <span class="est-mono">Get a free estimate</span>
+    <h3 class="est-card-title">30 seconds. Real plumber calls back.</h3>
+    <div class="est-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+      <span><strong>No obligation.</strong> No pressure.</span>
+    </div>
+    <div class="est-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <span><strong>Quick response —</strong> usually under 15 min.</span>
+    </div>
+    <div class="est-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2 4 4 8-8 2 2-10 10z"/></svg>
+      <span><strong>Honest pricing</strong> before any work starts.</span>
+    </div>
+    <a href="tel:+19735711411" class="est-cta">Get my free estimate →</a>
+  </aside>
+</section>
+
+<section class="trust-strip">
+  <div class="wrap trust-grid">
+    <div class="trust-item fx-row" data-row-delay="0">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <div class="trust-text"><strong>4.8★ on Google</strong><span>38 verified reviews</span></div>
+    </div>
+    <div class="trust-item fx-row" data-row-delay="80">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+      <div class="trust-text"><strong>Open 24/7</strong><span>Answered day or night</span></div>
+    </div>
+    <div class="trust-item fx-row" data-row-delay="160">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <div class="trust-text"><strong>NJ Licensed</strong><span>Insured &amp; bonded</span></div>
+    </div>
+    <div class="trust-item fx-row" data-row-delay="240">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-5 7 5v14M9 21v-6h6v6"/></svg></div>
+      <div class="trust-text"><strong>Family-run</strong><span>Cedar Grove neighbors</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section avail with-tools" id="avail">
+  <div class="tools-strip" aria-hidden="true">
+    <svg viewBox="0 0 60 130" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect x="25" y="34" width="10" height="92" rx="3"/>
+  <path d="M14 34 h32 v6 h-32z"/>
+  <path d="M14 14 q0 -8 6 -8 h20 q6 0 6 8 v22 h-32z"/>
+  <rect x="22" y="6" width="16" height="14" fill="#fff" opacity=".25"/>
+  <rect x="20" y="20" width="20" height="4" fill="#fff" opacity=".25"/>
+</svg>
+    <svg viewBox="0 0 60 130" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M22 130 v-50 q0 -22 22 -22 h6 v-12 h-6 q-34 0 -34 34 v50z"/>
+  <rect x="44" y="40" width="12" height="6"/>
+  <rect x="44" y="50" width="12" height="6"/>
+  <rect x="22" y="124" width="12" height="6"/>
+  <rect x="22" y="115" width="12" height="6"/>
+</svg>
+    <svg viewBox="0 0 60 130" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect x="25" y="60" width="10" height="60"/>
+  <path d="M16 50 h28 v10 h-28z"/>
+  <circle cx="30" cy="36" r="14"/>
+  <rect x="20" y="20" width="20" height="4" fill="#fff" opacity=".25"/>
+  <rect x="28" y="14" width="4" height="16" fill="#fff" opacity=".25"/>
+  <rect x="14" y="120" width="32" height="6"/>
+</svg>
+  </div>
+  <div class="wrap avail-inner with-tools-content">
+    <div class="avail-content">
+      <span class="avail-mono fx-row">Always on call</span>
+      <h2 class="fx-letters">Available 24/7. Even Sunday at 2am.</h2>
+      <p class="avail-lede fx-row" data-row-delay="200">A burst pipe at 11pm is not the time to leave a voicemail. A real plumber answers every call &mdash; nights, weekends, holidays &mdash; and we&rsquo;re usually in the truck within 15 minutes.</p>
+      <div class="avail-features">
+        <div class="avail-feat fx-row" data-row-delay="0">
+          <div class="avail-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <strong>Under 15 min response</strong>
+          <span>Most calls answered in under 5 rings.</span>
+        </div>
+        <div class="avail-feat fx-row" data-row-delay="120">
+          <div class="avail-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M5 8h14M7 16h10"/></svg></div>
+          <strong>Fully stocked truck</strong>
+          <span>Most repairs done in one visit, no parts run.</span>
+        </div>
+        <div class="avail-feat fx-row" data-row-delay="240">
+          <div class="avail-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <strong>Honest, upfront pricing</strong>
+          <span>Quote before any work starts &mdash; no surprises.</span>
+        </div>
+      </div>
+      <a href="tel:+19735711411" class="avail-cta fx-row" data-row-delay="400">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call (973) 571-1411
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-mono fx-row">Our work</span>
+      <h2 class="fx-letters">What we take care of.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service fx-row" data-row-delay="0">
+        <span class="service-num">01</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <h3>Emergency plumbing</h3>
+        <p>Leaks, burst pipes, no-water situations. Day or night — 24 hours, every day, holidays included.</p>
+        <a href="tel:+19735711411" class="service-link">Call now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="service fx-row" data-row-delay="80">
+        <span class="service-num">02</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 8h6M9 12h6M10 16h4"/></svg></div>
+        <h3>Water heater repair &amp; install</h3>
+        <p>Tankless and traditional. New install or replacement — usually same-day or first thing the next morning.</p>
+        <a href="tel:+19735711411" class="service-link">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="service fx-row" data-row-delay="160">
+        <span class="service-num">03</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Boiler service</h3>
+        <p>Boiler diagnosis, repair, and replacement. Heat back on without surprises on the bill.</p>
+        <a href="tel:+19735711411" class="service-link">Schedule <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="service fx-row" data-row-delay="240">
+        <span class="service-num">04</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M5 8h14M7 16h10M9 20h6"/></svg></div>
+        <h3>Drain cleaning</h3>
+        <p>Clogged drains, slow sinks, and main-line backups — diagnosed and cleared the same day.</p>
+        <a href="tel:+19735711411" class="service-link">Call us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="service fx-row" data-row-delay="320">
+        <span class="service-num">05</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h6v6H3zM15 9h6v6h-6zM9 12h6"/></svg></div>
+        <h3>Pipe repair</h3>
+        <p>Burst, leaking, or corroded pipes. Repaired or replaced cleanly — wall opened only as much as needed.</p>
+        <a href="tel:+19735711411" class="service-link">Diagnose <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="service fx-row" data-row-delay="400">
+        <span class="service-num">06</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>Toilets &amp; faucets</h3>
+        <p>Running toilets, dripping faucets, and broken handles fixed in one visit. No second trips for parts.</p>
+        <a href="tel:+19735711411" class="service-link">Book it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section about with-tools" id="about">
+  <div class="tools-strip" aria-hidden="true">
+    <svg viewBox="0 0 60 130" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect x="26" y="40" width="8" height="86" rx="2"/>
+  <path d="M16 18 q0 -10 8 -10 q4 0 6 4 q2 -4 6 -4 q8 0 8 10 v22 h-28z"/>
+  <path d="M22 22 h6 v8 h-6z" fill="#fff" opacity=".22"/>
+  <path d="M32 22 h6 v8 h-6z" fill="#fff" opacity=".22"/>
+  <rect x="20" y="40" width="20" height="4"/>
+</svg>
+    <svg viewBox="0 0 60 130" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M22 50 v76 q0 4 4 4 h2 q4 0 4 -4 v-76z"/>
+  <path d="M34 50 v76 q0 4 -4 4 h-2 q-4 0 -4 -4 v-76z"/>
+  <path d="M14 16 l16 32 l16 -32 l-2 -2 l-14 28 l-14 -28z"/>
+  <circle cx="30" cy="48" r="5"/>
+</svg>
+    <svg viewBox="0 0 60 130" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect x="25" y="34" width="10" height="92" rx="3"/>
+  <path d="M14 34 h32 v6 h-32z"/>
+  <path d="M14 14 q0 -8 6 -8 h20 q6 0 6 8 v22 h-32z"/>
+  <rect x="22" y="6" width="16" height="14" fill="#fff" opacity=".25"/>
+  <rect x="20" y="20" width="20" height="4" fill="#fff" opacity=".25"/>
+</svg>
+  </div>
+  <div class="wrap with-tools-content">
+    <div class="about-grid">
+      <div class="about-image fx-row">
+        <div class="about-image-overlay">
+          <div class="about-image-overlay-stars">★★★★★</div>
+          <div class="about-image-overlay-text"><strong>4.8 / 5 average</strong>From 38 verified Google reviews</div>
+        </div>
+      </div>
+      <div class="about-aside">
+        <span class="section-mono fx-row">About De Vito · Family-run</span>
+        <h2 class="fx-letters">A Cedar Grove plumber. Not a call center.</h2>
+        <div class="about-body">
+          <p class="fx-row" data-row-delay="200">De Vito Plumbing &amp; Heating has built a <strong>4.8-star reputation across 38 verified reviews</strong> by doing the simple things consistently — answering the phone, showing up when promised, and fixing the problem cleanly.</p>
+          <p class="fx-row" data-row-delay="350">We don't have a script. We don't have hold music. When you call, you talk to a plumber. When we say we'll be there, we're there. When we leave, the leak is fixed and the floor is clean.</p>
+          <p class="fx-row" data-row-delay="500">We work across <strong>Cedar Grove, Verona, Caldwell, West Caldwell, Montclair, and Little Falls</strong> — the same neighborhoods we live in.</p>
+        </div>
+        <div class="about-stats fx-row" data-row-delay="650">
+          <div class="about-stat"><span class="num">38</span><span class="lbl">5-star reviews</span></div>
+          <div class="about-stat"><span class="num">6</span><span class="lbl">Towns served</span></div>
+          <div class="about-stat"><span class="num">24<em>/</em>7</span><span class="lbl">Always answered</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section crew" id="crew">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-mono fx-row">The crew</span>
+      <h2 class="fx-letters">The plumbers who&rsquo;ll knock on your door.</h2>
+    </div>
+    <div class="crew-grid">
+      <article class="crew-card fx-row" data-row-delay="0">
+        <div class="crew-photo crew-photo-1"></div>
+        <div class="crew-info">
+          <span class="crew-years">22 years</span>
+          <span class="crew-role">Master plumber · Emergency lead</span>
+          <h3 class="crew-name">Tony</h3>
+          <p class="crew-bio">Runs the 2am calls. Burst pipes, flooded basements, no-water mornings &mdash; if it&rsquo;s an emergency, Tony&rsquo;s already in the truck.</p>
+        </div>
+      </article>
+      <article class="crew-card fx-row" data-row-delay="120">
+        <div class="crew-photo crew-photo-2"></div>
+        <div class="crew-info">
+          <span class="crew-years">18 years</span>
+          <span class="crew-role">Boiler &amp; water heater specialist</span>
+          <h3 class="crew-name">Mike</h3>
+          <p class="crew-bio">Diagnoses boilers like a doctor reads charts. New install, full replacement, or just a thermostat that&rsquo;s lying to you &mdash; Mike&rsquo;s call.</p>
+        </div>
+      </article>
+      <article class="crew-card fx-row" data-row-delay="240">
+        <div class="crew-photo crew-photo-3"></div>
+        <div class="crew-info">
+          <span class="crew-years">14 years</span>
+          <span class="crew-role">Drain &amp; pipe repair</span>
+          <h3 class="crew-name">Carlos</h3>
+          <p class="crew-bio">Clears the worst clogs in Cedar Grove. Repipes, snake jobs, slow-drain mysteries &mdash; he&rsquo;s seen all of it, fixed all of it.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section moments" id="moments">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-mono fx-row">Real homes · Real fixes</span>
+      <h2 class="fx-letters">A few of our recent jobs.</h2>
+    </div>
+    <div class="moments-grid">
+      <figure class="moment moment-1 fx-row" data-row-delay="0">
+        <figcaption class="moment-caption"><span>Cedar Grove · Last week</span>Burst pipe behind a kitchen wall — opened just enough drywall to fix it cleanly.</figcaption>
+      </figure>
+      <figure class="moment moment-2 fx-row" data-row-delay="120">
+        <figcaption class="moment-caption"><span>Verona · 2am call</span>Leaking water heater — replaced and tested by morning.</figcaption>
+      </figure>
+      <figure class="moment moment-3 fx-row" data-row-delay="200">
+        <figcaption class="moment-caption"><span>Montclair · Same day</span>Faucet replacement after a slow drip ruined the cabinet.</figcaption>
+      </figure>
+      <figure class="moment moment-4 fx-row" data-row-delay="280">
+        <figcaption class="moment-caption"><span>Caldwell · Tuesday</span>Boiler diagnosed and back on before dinner.</figcaption>
+      </figure>
+      <figure class="moment moment-5 fx-row" data-row-delay="360">
+        <figcaption class="moment-caption"><span>Little Falls · Holiday</span>Main-line backup cleared without tearing up the yard.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-mono fx-row">What neighbors say</span>
+      <h2 class="fx-letters">Cedar Grove says it best.</h2>
+    </div>
+    <div class="reviews-grid">
+      <article class="review fx-row" data-row-delay="0">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>I had a leak and needed help urgently, so I called De Vito very early in the morning. The gentleman answered right away and plumbers arrived at my home quickly. They were professional, efficient, and got the job done.</blockquote>
+        <div class="review-attr">
+          <div class="review-portrait portrait-1"></div>
+          <div>
+            <div class="review-name">Gabriella B.</div>
+            <div class="review-meta">Google · 8 months ago</div>
+          </div>
+        </div>
+      </article>
+      <article class="review fx-row" data-row-delay="180">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>Had a leaking water tank late in the evening — not only were they super responsive and helpful that evening, I had a new water tank installed by first thing the next morning. Nice, friendly people. Definitely would call them again.</blockquote>
+        <div class="review-attr">
+          <div class="review-portrait portrait-2"></div>
+          <div>
+            <div class="review-name">Carol S.</div>
+            <div class="review-meta">Google · 1 year ago</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section area-hours" id="area">
+  <div class="wrap">
+    <div class="ah-grid">
+      <div class="ah-block">
+        <span class="section-mono fx-row">Service area</span>
+        <h2 class="fx-letters">Towns we serve, door to door.</h2>
+        <ul class="area-list">
+          <li class="fx-row" data-row-delay="0">Cedar Grove</li>
+          <li class="fx-row" data-row-delay="50">Verona</li>
+          <li class="fx-row" data-row-delay="100">Caldwell</li>
+          <li class="fx-row" data-row-delay="150">West Caldwell</li>
+          <li class="fx-row" data-row-delay="200">Montclair</li>
+          <li class="fx-row" data-row-delay="250">Little Falls</li>
+        </ul>
+      </div>
+      <div class="ah-block">
+        <span class="section-mono fx-row">Hours</span>
+        <h2 class="fx-letters">Open around the clock.</h2>
+        <ul class="hours-list">
+          <li class="fx-row" data-row-delay="0"><span class="day">Monday</span><span class="time">Open 24 hours</span></li>
+          <li class="fx-row" data-row-delay="40"><span class="day">Tuesday</span><span class="time">Open 24 hours</span></li>
+          <li class="fx-row" data-row-delay="80"><span class="day">Wednesday</span><span class="time">Open 24 hours</span></li>
+          <li class="fx-row" data-row-delay="120"><span class="day">Thursday</span><span class="time">Open 24 hours</span></li>
+          <li class="fx-row" data-row-delay="160"><span class="day">Friday</span><span class="time">Open 24 hours</span></li>
+          <li class="fx-row" data-row-delay="200"><span class="day">Saturday</span><span class="time">Open 24 hours</span></li>
+          <li class="fx-row" data-row-delay="240"><span class="day">Sunday</span><span class="time">Open 24 hours</span></li>
+        </ul>
+        <p class="hours-note fx-row" data-row-delay="300">Yes, even <em>Sunday at 2am.</em> Day or night — call anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="call">
+  <div class="final-bg"></div>
+  <div class="final-inner">
+    <span class="section-mono fx-row">When something breaks</span>
+    <h2 class="fx-letters">Don't wait for morning.</h2>
+    <a href="tel:+19735711411" class="final-phone fx-row" data-row-delay="600">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (973) 571-1411
+    </a>
+    <p class="final-sub fx-row" data-row-delay="800">A real plumber answers — no recordings, no menus.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span class="foot-mono">© De Vito Plumbing &amp; Heating · 452 Ridge Rd, Cedar Grove, NJ 07009</span>
+    <span class="foot-credit">Site by <a href="https://slatepress.co" target="_blank" rel="noopener">Slatepress</a></span>
+  </div>
+</footer>
+
+<script>
+  function splitWords(root){
+    const walk=(parent)=>{const out=document.createDocumentFragment();for(const node of Array.from(parent.childNodes)){if(node.nodeType===Node.TEXT_NODE){const words=node.textContent.split(/(\s+)/);for(const w of words){if(/^\s+$/.test(w)){out.appendChild(document.createTextNode(w));continue}if(w==="")continue;const word=document.createElement('span');word.className='word';word.style.setProperty('--i',root._wordIdx++);const inner=document.createElement('span');inner.className='word-inner';inner.textContent=w;word.appendChild(inner);out.appendChild(word)}}else if(node.nodeType===Node.ELEMENT_NODE){const clone=node.cloneNode(false);clone.appendChild(walk(node));out.appendChild(clone)}}return out};
+    root._wordIdx=0;const replaced=walk(root);root.innerHTML='';root.appendChild(replaced);
+  }
+  function splitLetters(root){
+    const text=root.textContent;root.textContent='';let i=0;
+    for(const ch of text){if(ch===' '){root.appendChild(document.createTextNode(' '));continue}const span=document.createElement('span');span.className='letter';span.style.setProperty('--i',i++);span.textContent=ch;root.appendChild(span)}
+  }
+  document.querySelectorAll('.fx-words').forEach(splitWords);
+  document.querySelectorAll('.fx-letters').forEach(splitLetters);
+  document.querySelectorAll('.fx-row').forEach(el=>{const d=el.getAttribute('data-row-delay');if(d)el.style.setProperty('--row-delay',d+'ms')});
+  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.15,rootMargin:'0px 0px -10% 0px'});
+  document.querySelectorAll('.fx-words, .fx-letters, .fx-row').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>

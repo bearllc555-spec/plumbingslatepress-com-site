@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Mockup Library — Plumbing\Slatepress</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:wght@500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#fafbff; --paper-2:#f3f5fb; --paper-3:#e6eaf4;
+  --ink:#0b0d12; --ink-soft:#3c3f49; --slate:#6b6e78; --rule:#e0e3ed;
+  --blue:#2563eb; --blue-deep:#1e4fd1; --blue-soft:#dbe4ff; --blue-glow:rgba(37,99,235,.18);
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+
+/* TOPNAV */
+.topnav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--rule)}
+.topnav-inner{max-width:var(--max);margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:inline-flex;align-items:center;font-weight:900;font-size:19px;letter-spacing:-.02em;color:var(--ink);line-height:1;white-space:nowrap}
+.brand-slash{color:var(--blue);margin:0 .04em}
+.brand-suffix{color:var(--ink)}
+.back-link{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;font-size:13px;font-weight:600;color:var(--ink-soft);border:1px solid var(--rule);border-radius:999px;transition:border-color .2s,color .2s}
+.back-link:hover{border-color:var(--ink);color:var(--ink)}
+@media(max-width:600px){
+  .topnav-inner{padding:14px 18px}
+  .brand{font-size:17px}
+  .brand-suffix{display:none}
+  .back-link{padding:.45rem .8rem;font-size:12.5px}
+}
+
+/* INTRO */
+.intro{padding:72px 0 28px;text-align:center}
+.intro-eyebrow{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);background:var(--blue-soft);padding:.32rem .85rem;border-radius:999px;margin-bottom:18px}
+.intro h1{font-size:clamp(34px,4.6vw,56px);font-weight:800;letter-spacing:-.025em;line-height:1.05;color:var(--ink);margin:0 0 14px;max-width:18ch;margin-inline:auto}
+.intro p{font-size:16px;color:var(--ink-soft);line-height:1.6;max-width:54ch;margin:0 auto}
+
+/* GRID */
+.grid{padding:48px 0 96px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid{grid-template-columns:1fr;gap:14px}}
+
+.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--rule);border-radius:14px;overflow:hidden;transition:border-color .2s,transform .2s,box-shadow .2s;text-decoration:none;color:var(--ink)}
+.card:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:0 12px 30px rgba(11,13,18,.08)}
+.card-preview{position:relative;aspect-ratio:16/10;background:var(--paper-2);overflow:hidden;border-bottom:1px solid var(--rule)}
+.card-preview iframe{position:absolute;top:0;left:0;width:200%;height:200%;border:0;transform:scale(.5);transform-origin:0 0;pointer-events:none}
+.card-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px}
+.card-version{font-family:'Fraunces',Georgia,serif;font-size:13px;font-weight:500;letter-spacing:.02em;color:var(--blue);text-transform:uppercase}
+.card-title{font-size:15px;font-weight:600;color:var(--ink);line-height:1.35;letter-spacing:-.005em}
+.card-cta{margin-top:8px;font-size:13px;font-weight:600;color:var(--ink-soft);display:inline-flex;align-items:center;gap:.35rem}
+.card:hover .card-cta{color:var(--blue)}
+.card-cta svg{width:11px;height:11px;transition:transform .2s}
+.card:hover .card-cta svg{transform:translateX(2px)}
+
+/* LOADING / EMPTY */
+.status{text-align:center;padding:60px 20px;color:var(--slate);font-size:14px}
+.status .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--blue);margin-right:8px;animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* FOOTER */
+.foot{padding:32px 0 48px;text-align:center;font-size:12.5px;color:var(--slate);border-top:1px solid var(--rule)}
+.foot-count{font-weight:600;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <a href="/" class="brand"><span>PLUMBING</span><span class="brand-slash">\</span><span class="brand-suffix">SLATEPRESS</span></a>
+    <a href="/" class="back-link">
+      <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to home
+    </a>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="container">
+    <div class="intro-eyebrow">Internal Library</div>
+    <h1>Mockup Library</h1>
+    <p>Design iterations from the De Vito Plumbing build. Preserved here as a reference catalog — winners get pulled, renamed, and shipped to live demo URLs as we onboard plumbers. Click any card to open it in a new tab.</p>
+  </div>
+</section>
+
+<main class="container">
+  <div id="status" class="status"><span class="dot"></span>Loading mockups…</div>
+  <div id="grid" class="grid" hidden></div>
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <span class="foot-count" id="footCount">—</span> mockup<span id="footCountPlural">s</span> archived. Each one is a snapshot of an earlier design iteration.
+  </div>
+</footer>
+
+<script>
+(async function(){
+  // Catalog reads /mockups/manifest.json — a list of {n, title} entries.
+  // The manifest is regenerated by build-manifest.sh whenever a mockup folder is added or removed.
+  // To add a new mockup: drop the folder at /mockups/_NNN/, re-run build-manifest.sh, redeploy.
+  const status = document.getElementById('status');
+  const grid = document.getElementById('grid');
+  const footCount = document.getElementById('footCount');
+  const footCountPlural = document.getElementById('footCountPlural');
+
+  let items = [];
+  try {
+    const res = await fetch('/mockups/manifest.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('manifest fetch failed: ' + res.status);
+    items = await res.json();
+  } catch (err) {
+    status.innerHTML = 'Could not load mockup manifest. (' + err.message + ')';
+    return;
+  }
+
+  if (!Array.isArray(items) || items.length === 0) {
+    status.innerHTML = 'No mockups in manifest.';
+    return;
+  }
+
+  // Sort by version number ascending
+  items.sort((a, b) => parseInt(a.n) - parseInt(b.n));
+
+  const arrowSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
+  grid.innerHTML = items.map(({ n, title }) => `
+    <a href="/mockups/_${n}/" target="_blank" rel="noopener" class="card">
+      <div class="card-preview"><iframe src="/mockups/_${n}/" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="card-body">
+        <div class="card-version">Mockup _${n}</div>
+        <div class="card-title">${escapeHtml(title || ('Mockup _' + n))}</div>
+        <span class="card-cta">View mockup ${arrowSvg}</span>
+      </div>
+    </a>
+  `).join('');
+  status.hidden = true;
+  grid.hidden = false;
+  footCount.textContent = items.length;
+  footCountPlural.textContent = items.length === 1 ? '' : 's';
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+})();
+</script>
+
+</body>
+</html>

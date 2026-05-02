@@ -1,0 +1,20 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Build artifacts (we don't have any but reserve)
+node_modules/
+dist/
+
+# Env files (CF Pages env vars are the source of truth — no .env in repo, ever)
+.env
+.env.*
+
+# OneDrive sync junk (just in case)
+~$*
+desktop.ini
