@@ -45,6 +45,7 @@ img{max-width:100%;display:block}
 .brand-slash{display:inline-block;color:var(--blue);font-weight:900;margin:0 .04em;transform:translateY(-.02em)}
 .brand-suffix{display:inline-block;overflow:hidden;vertical-align:bottom;white-space:nowrap}
 .brand-suffix .letter{display:inline-block;opacity:1;max-width:.62em;transition:opacity .25s ease,max-width .35s cubic-bezier(.55,0,.1,1);transition-delay:calc(var(--i,0) * 50ms)}
+.version{display:inline-block;margin-left:7px;font-size:10px;font-weight:600;color:#9CA3AF;letter-spacing:.04em;text-transform:lowercase;vertical-align:7px;font-feature-settings:"tnum";text-decoration:none}
 .topnav.scrolled .brand-suffix .letter{opacity:0;max-width:0;transition-delay:calc((9 - var(--i,0)) * 50ms)}
 .topnav-cta{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.2rem;background:var(--blue);color:#fff;font-weight:600;font-size:14px;border-radius:999px;transition:background .2s,transform .2s;box-shadow:0 4px 12px var(--blue-glow)}
 .topnav-cta:hover{background:var(--blue-deep);transform:translateY(-1px)}
@@ -228,7 +229,7 @@ footer{padding:32px 0;font-size:13px;color:var(--slate);background:var(--ink);bo
 
 <header class="topnav" id="topnav">
   <div class="topnav-inner">
-    <a href="/" class="brand"><span class="brand-prefix">PLUMBERS</span><span class="brand-slash">/</span><span class="brand-suffix"><span class="letter" style="--i:0">s</span><span class="letter" style="--i:1">l</span><span class="letter" style="--i:2">a</span><span class="letter" style="--i:3">t</span><span class="letter" style="--i:4">e</span><span class="letter" style="--i:5">p</span><span class="letter" style="--i:6">r</span><span class="letter" style="--i:7">e</span><span class="letter" style="--i:8">s</span><span class="letter" style="--i:9">s</span></span></a>
+    <a href="/" class="brand"><span class="brand-prefix">PLUMBERS</span><span class="brand-slash">/</span><span class="brand-suffix"><span class="letter" style="--i:0">s</span><span class="letter" style="--i:1">l</span><span class="letter" style="--i:2">a</span><span class="letter" style="--i:3">t</span><span class="letter" style="--i:4">e</span><span class="letter" style="--i:5">p</span><span class="letter" style="--i:6">r</span><span class="letter" style="--i:7">e</span><span class="letter" style="--i:8">s</span><span class="letter" style="--i:9">s</span></span><span class="version">v01</span></a>
     <div style="display:flex;align-items:center;gap:1.5rem">
       <a href="/blog/" style="font-weight:600;font-size:14px;color:var(--ink-soft);transition:color .2s">Notes</a>
       <a href="#" data-modal="onboard" class="topnav-cta">Create a free design <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
