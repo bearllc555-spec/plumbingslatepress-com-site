@@ -94,10 +94,9 @@ img{max-width:100%;display:block}
 .gallery-head h2 em{font-style:normal;color:var(--blue)}
 .gallery-head p{font-size:16px;color:var(--ink-soft);line-height:1.55;max-width:50ch;margin:0 auto}
 .gallery-carousel{position:relative;padding:24px 0 8px}
-.gallery-viewport{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;-webkit-mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)}
+.gallery-viewport{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;-webkit-mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)}
 .gallery-viewport::-webkit-scrollbar{display:none}
 .gallery-track{display:flex;gap:28px;padding:0 calc(50% - 174px) 14px}
-.gallery-track .g-card{scroll-snap-align:center}
 /* Nav controls below thumbnails */
 .gallery-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:18px}
 .gallery-dots{display:inline-flex;align-items:center;gap:8px}
@@ -246,7 +245,7 @@ img{max-width:100%;display:block}
 
 <header class="topnav" id="topnav">
   <div class="topnav-inner">
-    <a href="/" class="brand"><span class="brand-prefix">PLUMBERS</span><span class="brand-slash">/</span><span class="brand-suffix"><span class="letter" style="--i:0">s</span><span class="letter" style="--i:1">l</span><span class="letter" style="--i:2">a</span><span class="letter" style="--i:3">t</span><span class="letter" style="--i:4">e</span><span class="letter" style="--i:5">p</span><span class="letter" style="--i:6">r</span><span class="letter" style="--i:7">e</span><span class="letter" style="--i:8">s</span><span class="letter" style="--i:9">s</span></span><span class="version">v25</span></a>
+    <a href="/" class="brand"><span class="brand-prefix">PLUMBERS</span><span class="brand-slash">/</span><span class="brand-suffix"><span class="letter" style="--i:0">s</span><span class="letter" style="--i:1">l</span><span class="letter" style="--i:2">a</span><span class="letter" style="--i:3">t</span><span class="letter" style="--i:4">e</span><span class="letter" style="--i:5">p</span><span class="letter" style="--i:6">r</span><span class="letter" style="--i:7">e</span><span class="letter" style="--i:8">s</span><span class="letter" style="--i:9">s</span></span><span class="version">v26</span></a>
     <div style="display:flex;align-items:center;gap:1.5rem">
       <a href="/blog/" style="font-weight:600;font-size:14px;color:var(--ink-soft);transition:color .2s">Blog</a>
       <a href="#" data-modal="onboard" class="topnav-cta">Create a free design <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
@@ -709,19 +708,22 @@ img{max-width:100%;display:block}
   var track = viewport && viewport.querySelector('.gallery-track');
   if (!viewport || !track) return;
   var allCards = Array.prototype.slice.call(track.querySelectorAll('.g-card'));
-  // Track has 12 cards (6 unique x2 for seamless wrap). Use the first 6 for dot mapping.
   var uniqueCount = 6;
   var unique = allCards.slice(0, uniqueCount);
   var dots = Array.prototype.slice.call(document.querySelectorAll('#galleryDots .gallery-dot'));
-  if (!unique.length || !dots.length) return;
+  if (!unique.length || !dots.length || allCards.length < uniqueCount * 2) return;
+
   var paused = false;
   var resumeAt = 0;
-  var SPEED = 0.35; // px per frame at 60fps -> ~21px/sec, ~60s for 6 cards
-  // Initial position: center the first card
+  var SPEED = 0.5; // px per frame (~30px/sec @ 60fps -> ~70s per full set of 6 cards)
+  var pos = 0;     // accumulator for fractional scrollLeft
+  var startPos = 0;
+  var wrapDelta = 0;
+
   function centerOf(card){ return card.offsetLeft + card.offsetWidth/2 - viewport.clientWidth/2; }
   function setActive(i){ dots.forEach(function(d, idx){ d.classList.toggle('active', idx === i); }); }
   function syncDot(){
-    var center = viewport.scrollLeft + viewport.clientWidth/2;
+    var center = pos + viewport.clientWidth/2;
     var closest = 0, minDist = Infinity;
     for (var i = 0; i < uniqueCount; i++){
       var c = unique[i];
@@ -731,45 +733,60 @@ img{max-width:100%;display:block}
     }
     setActive(closest);
   }
-  // Position viewport on first card on load
+
+  function recalc(){
+    startPos = centerOf(unique[0]);
+    var seventhStart = centerOf(allCards[uniqueCount]);
+    wrapDelta = seventhStart - startPos;
+  }
+
   function init(){
-    viewport.scrollLeft = centerOf(unique[0]);
+    recalc();
+    pos = startPos;
+    viewport.scrollLeft = Math.round(pos);
     setActive(0);
   }
-  // rAF marquee loop
+
   function tick(){
     if (!paused && Date.now() >= resumeAt){
-      viewport.scrollLeft += SPEED;
-      // Seamless wrap: when we've scrolled past the 7th card (start of duplicate set), snap back
-      var seventhCardStart = allCards[uniqueCount].offsetLeft - viewport.clientWidth/2 + allCards[uniqueCount].offsetWidth/2;
-      if (viewport.scrollLeft >= seventhCardStart){
-        viewport.scrollLeft -= seventhCardStart - centerOf(unique[0]);
+      pos += SPEED;
+      // Seamless wrap when we reach the duplicate set
+      if (wrapDelta > 0 && pos >= startPos + wrapDelta){
+        pos -= wrapDelta;
       }
+      viewport.scrollLeft = Math.round(pos);
       syncDot();
     }
     requestAnimationFrame(tick);
   }
-  // Dot click: smooth-jump to that card, pause briefly, then resume marquee
+
+  // Dot click: jump to that card, pause 2s, resume from new position
   dots.forEach(function(d, idx){
     d.addEventListener('click', function(){
-      var target = centerOf(unique[idx]);
       paused = true;
-      viewport.scrollTo({left: target, behavior: 'smooth'});
+      pos = centerOf(unique[idx]);
+      viewport.scrollTo({left: Math.round(pos), behavior: 'smooth'});
       setActive(idx);
-      // Resume marquee 2s after the click
       resumeAt = Date.now() + 2000;
       paused = false;
     });
   });
-  // Hover pauses
+
   viewport.addEventListener('mouseenter', function(){ paused = true; });
   viewport.addEventListener('mouseleave', function(){ paused = false; });
-  // Touch: pause while user interacts
   viewport.addEventListener('touchstart', function(){ paused = true; }, {passive:true});
   viewport.addEventListener('touchend', function(){ resumeAt = Date.now() + 2500; paused = false; }, {passive:true});
-  // Wait for layout, then start
-  if (document.readyState === 'complete') { init(); requestAnimationFrame(tick); }
-  else { window.addEventListener('load', function(){ init(); requestAnimationFrame(tick); }); }
+
+  // Wait for images so card geometry is correct
+  function start(){ init(); requestAnimationFrame(tick); }
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start);
+  // Recalc on resize
+  window.addEventListener('resize', function(){
+    var beforeStart = startPos;
+    recalc();
+    pos += (startPos - beforeStart);
+  });
 })();
 </script>
 <script>
