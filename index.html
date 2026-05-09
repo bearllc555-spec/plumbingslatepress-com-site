@@ -202,6 +202,16 @@ img{max-width:100%;display:block}
 .ff-checks label{display:inline-flex;align-items:center;gap:.45rem;padding:.5rem .65rem;border:1px solid var(--rule);border-radius:7px;font-size:13px;color:var(--ink);cursor:pointer;transition:border-color .2s,background .2s;font-weight:500}
 .ff-checks label:hover{border-color:var(--ink)}
 .ff-checks input[type="checkbox"]{accent-color:var(--accent);width:13px;height:13px;flex-shrink:0}
+.ff-helper{font-size:12px;color:var(--ink-soft);margin:2px 0 8px;line-height:1.5}
+.trades-list{display:flex;flex-direction:column;gap:8px}
+.trade-row{display:grid;grid-template-columns:1.4fr 1.4fr .8fr auto;gap:6px;align-items:center}
+.trade-row input{padding:.55rem .65rem;border:1px solid var(--rule);border-radius:7px;font-size:13px;color:var(--ink);background:#fff;font-family:'Inter',sans-serif;width:100%;transition:border-color .15s,box-shadow .15s}
+.trade-row input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.trade-remove{width:30px;height:30px;border:1px solid var(--rule);border-radius:50%;background:#fff;color:var(--ink-soft);cursor:pointer;font-size:16px;line-height:1;padding:0;flex-shrink:0;transition:border-color .15s,color .15s,background .15s;display:inline-flex;align-items:center;justify-content:center}
+.trade-remove:hover{border-color:var(--ink);color:var(--ink);background:#fff}
+.trade-add{display:inline-flex;align-items:center;font-size:13px;color:var(--blue);font-weight:600;background:transparent;border:0;cursor:pointer;padding:8px 0 0;font-family:'Inter',sans-serif}
+.trade-add:hover{text-decoration:underline}
+@media(max-width:560px){.trade-row{grid-template-columns:1fr;gap:6px}.trade-remove{width:auto;padding:6px 12px;border-radius:7px;justify-self:flex-end;font-size:14px}}
 .modal-submit{margin-top:10px;padding:1rem 1.4rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;transition:background .2s,transform .2s,border-color .2s;font-family:'Inter',sans-serif}
 .modal-submit:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
 .modal-fine{font-size:11.5px;color:var(--slate);line-height:1.45;text-align:center;margin-top:8px}
@@ -245,7 +255,7 @@ img{max-width:100%;display:block}
 
 <header class="topnav" id="topnav">
   <div class="topnav-inner">
-    <a href="/" class="brand"><span class="brand-prefix">PLUMBERS</span><span class="brand-slash">/</span><span class="brand-suffix"><span class="letter" style="--i:0">s</span><span class="letter" style="--i:1">l</span><span class="letter" style="--i:2">a</span><span class="letter" style="--i:3">t</span><span class="letter" style="--i:4">e</span><span class="letter" style="--i:5">p</span><span class="letter" style="--i:6">r</span><span class="letter" style="--i:7">e</span><span class="letter" style="--i:8">s</span><span class="letter" style="--i:9">s</span></span><span class="version">v30</span></a>
+    <a href="/" class="brand"><span class="brand-prefix">PLUMBERS</span><span class="brand-slash">/</span><span class="brand-suffix"><span class="letter" style="--i:0">s</span><span class="letter" style="--i:1">l</span><span class="letter" style="--i:2">a</span><span class="letter" style="--i:3">t</span><span class="letter" style="--i:4">e</span><span class="letter" style="--i:5">p</span><span class="letter" style="--i:6">r</span><span class="letter" style="--i:7">e</span><span class="letter" style="--i:8">s</span><span class="letter" style="--i:9">s</span></span><span class="version">v31</span></a>
     <div style="display:flex;align-items:center;gap:1.5rem">
       <a href="/blog/" style="font-weight:600;font-size:14px;color:var(--ink-soft);transition:color .2s">Blog</a>
       <a href="#" data-modal="onboard" class="topnav-cta">Create a free design <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
@@ -521,18 +531,17 @@ img{max-width:100%;display:block}
         </div>
       </div>
       <div class="ff">
-        <label>What trade associations do you belong to?</label>
-        <div class="ff-checks ff-trades">
-          <label><input type="checkbox" name="trades" value="PHCC"> PHCC</label>
-          <label><input type="checkbox" name="trades" value="ASPE"> ASPE</label>
-          <label><input type="checkbox" name="trades" value="UA"> UA / Local</label>
-          <label><input type="checkbox" name="trades" value="IAPMO"> IAPMO</label>
-          <label><input type="checkbox" name="trades" value="NJMCA"> State MCA</label>
-          <label><input type="checkbox" name="trades" value="BBB"> BBB</label>
-          <label><input type="checkbox" name="trades" value="Chamber of Commerce"> Chamber</label>
-          <label><input type="checkbox" name="trades" value="None"> None / not sure</label>
+        <label>Trade associations you belong to</label>
+        <div class="ff-helper">Add as many as apply (PHCC, ASPE, BBB, Chamber of Commerce, local guild, etc.)</div>
+        <div id="trades-list" class="trades-list">
+          <div class="trade-row">
+            <input type="text" name="assoc_name[]" placeholder="Association name" />
+            <input type="url" name="assoc_url[]" placeholder="Website" />
+            <input type="text" name="assoc_years[]" placeholder="Years member" />
+            <button type="button" class="trade-remove" aria-label="Remove this row">&times;</button>
+          </div>
         </div>
-        <input type="text" name="trades_other" placeholder="Other associations (optional)" style="margin-top:8px"/>
+        <button type="button" id="add-trade" class="trade-add">+ Add another</button>
       </div>
       <div class="ff">
         <label for="of-budget">Current monthly ad spend</label>
@@ -800,6 +809,33 @@ img{max-width:100%;display:block}
     var beforeStart = startPos;
     recalc();
     pos += (startPos - beforeStart);
+  });
+})();
+
+// Trade-associations repeater - add/remove rows in the onboard modal form
+(function(){
+  var list = document.getElementById('trades-list');
+  var add = document.getElementById('add-trade');
+  if (!list || !add) return;
+  function bindRemove(btn){
+    btn.addEventListener('click', function(){
+      var rows = list.querySelectorAll('.trade-row');
+      if (rows.length === 1) {
+        rows[0].querySelectorAll('input').forEach(function(i){ i.value = ''; });
+      } else {
+        btn.closest('.trade-row').remove();
+      }
+    });
+  }
+  Array.prototype.forEach.call(list.querySelectorAll('.trade-remove'), bindRemove);
+  add.addEventListener('click', function(){
+    var template = list.querySelector('.trade-row');
+    var clone = template.cloneNode(true);
+    Array.prototype.forEach.call(clone.querySelectorAll('input'), function(i){ i.value = ''; });
+    list.appendChild(clone);
+    bindRemove(clone.querySelector('.trade-remove'));
+    var firstInput = clone.querySelector('input');
+    if (firstInput) firstInput.focus();
   });
 })();
 </script>
