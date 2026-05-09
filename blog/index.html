@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Notes from the workshop — Plumbing\Slatepress</title>
+<title>Notes — PLUMBERS/slatepress</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="apple-touch-icon" href="/favicon.svg"/>
 <meta name="description" content="Field notes on phones, websites, marketing, and the unit economics of running a plumbing business in 2026. Written for plumbers, not for agencies.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://plumbingslatepress.com/blog/">
@@ -42,6 +44,7 @@ img{max-width:100%;display:block}
 .brand-prefix{display:inline-block}
 .brand-slash{display:inline-block;color:var(--blue);font-weight:900;margin:0 .04em;transform:translateY(-.02em)}
 .brand-suffix{display:inline-block}
+.version{display:inline-block;font-size:10.5px;font-weight:500;color:var(--slate);margin-left:.5rem;letter-spacing:.02em;font-family:'JetBrains Mono',monospace}
 .topnav-right{display:flex;align-items:center;gap:1.5rem}
 .topnav-link{font-weight:600;font-size:14px;color:var(--ink-soft);transition:color .2s}
 .topnav-link:hover{color:var(--ink)}
@@ -62,8 +65,8 @@ img{max-width:100%;display:block}
 .blog-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center top,var(--paper-2) 0%,transparent 60%);pointer-events:none;z-index:0}
 .blog-hero-inner{position:relative;z-index:1}
 .blog-eyebrow{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:24px}
-.blog-hero h1{font-size:clamp(40px,5.6vw,76px);font-weight:800;letter-spacing:-.035em;line-height:1.04;color:var(--ink);max-width:18ch;margin:0 auto}
-.blog-hero h1 .accent{color:var(--blue);font-style:italic}
+.blog-hero h1{font-size:38px;font-weight:700;letter-spacing:-.025em;line-height:1.15;color:var(--ink);max-width:30ch;margin:0 auto}
+.blog-hero h1 .accent{color:var(--blue)}
 .blog-hero-sub{font-size:clamp(15px,1.2vw,18px);color:var(--ink-soft);max-width:54ch;line-height:1.6;margin:28px auto 0}
 
 /* POST LIST — new YouTube-style layout */
@@ -85,7 +88,7 @@ img{max-width:100%;display:block}
 
 .post-content{display:flex;flex-direction:column;gap:8px;min-width:0}
 .post-meta{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:500;color:var(--slate);letter-spacing:.04em;text-transform:uppercase}
-.post-card h2{font-size:clamp(20px,2vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--ink);margin:0;transition:color .2s}
+.post-card h2{font-size:clamp(22px,2.2vw,26px);font-weight:700;letter-spacing:-.025em;line-height:1.2;color:var(--ink);margin:0;transition:color .2s}
 .post-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.55;margin:0;max-width:62ch}
 .post-footer{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:6px}
 .post-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);background:var(--blue-soft);padding:.3rem .7rem;border-radius:999px}
@@ -102,7 +105,7 @@ img{max-width:100%;display:block}
 
 .foot{border-top:1px solid var(--rule);padding:48px 0 64px;color:var(--slate);font-size:13.5px;line-height:1.7}
 .foot-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
-.foot-brand{font-weight:700;color:var(--ink);margin-bottom:6px}
+.foot-brand{font-weight:900;font-size:18px;color:var(--ink);margin-bottom:6px;letter-spacing:-.02em}
 .foot-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}
 .foot-links{display:flex;gap:24px;flex-wrap:wrap}
 .foot-links a{color:var(--ink-soft);transition:color .2s}
@@ -114,8 +117,9 @@ img{max-width:100%;display:block}
 
 <header class="topnav" id="topnav">
   <div class="topnav-inner">
-    <a href="/" class="brand"><span class="brand-prefix">PLUMBING</span><span class="brand-slash">\</span><span class="brand-suffix">SLATEPRESS</span></a>
+    <a href="/" class="brand"><span class="brand-prefix">PLUMBERS</span><span class="brand-slash">/</span><span class="brand-suffix">slatepress</span><span class="version">v01</span></a>
     <div class="topnav-right">
+      <a href="/" class="topnav-link">Home</a>
       <a href="/blog/" class="topnav-link active">Notes</a>
       <a href="/" class="topnav-cta">Create a free design <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
     </div>
@@ -125,7 +129,7 @@ img{max-width:100%;display:block}
 <section class="blog-hero">
   <div class="wrap blog-hero-inner">
     <div class="blog-eyebrow">Notes from the workshop</div>
-    <h1>Phones, websites, and the math of <span class="accent">running a plumbing shop.</span></h1>
+    <h1>phones, websites, and the math of <span class="accent">running a plumbing shop.</span></h1>
     <p class="blog-hero-sub">Field notes on the unit economics of inbound calls, the agencies that quietly bill you for nothing, and what's actually changing about getting customers in 2026. Written for plumbers, not for agencies.</p>
   </div>
 </section>
@@ -140,43 +144,43 @@ img{max-width:100%;display:block}
         </div>
         <div class="post-content">
           <div class="post-meta">May 2, 2026 · 5 min read</div>
-          <h2>What the 132-million-view plumber knows.</h2>
+          <h2>what the 132-million-view plumber knows.</h2>
           <p>Roger Wakefield posted his first plumbing video years ago and never stopped. The lesson buried in his timeline isn't about YouTube — it's about content as compounding inventory for a service business, and what it would mean to start building yours before everyone else in your ZIP does.</p>
           <div class="post-footer">
             <span class="post-tag">Operator notes</span>
-            <span class="post-read">Water is warm <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+            <span class="post-read">water is warm <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
           </div>
         </div>
       </a>
 
       <a class="post-card" href="/blog/posts/why-the-cold-call-agencies-keep-finding-you/">
         <div class="post-thumb post-thumb-tile" aria-label="Cold-outreach teardown thumbnail">
-          <span class="post-thumb-tile-mark">Plumbing\Slatepress</span>
+          <span class="post-thumb-tile-mark">PLUMBERS/slatepress</span>
           <span class="post-thumb-tile-tag">Cold-outreach<br>teardown</span>
         </div>
         <div class="post-content">
           <div class="post-meta">May 2, 2026 · 6 min read</div>
-          <h2>Why the cold-call agencies keep finding you.</h2>
+          <h2>why the cold-call agencies keep finding you.</h2>
           <p>It isn't that your shop is special. It isn't that they've researched your business. It's that their unit economics structurally require them to find every plumber, every week — and the cold-DM is a confession about what kind of operation is reaching out.</p>
           <div class="post-footer">
             <span class="post-tag">Cold-outreach teardown</span>
-            <span class="post-read">Water is warm <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+            <span class="post-read">water is warm <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
           </div>
         </div>
       </a>
 
       <a class="post-card" href="/blog/posts/why-your-phone-went-quiet/">
         <div class="post-thumb post-thumb-tile" aria-label="Phone economics thumbnail">
-          <span class="post-thumb-tile-mark">Plumbing\Slatepress</span>
+          <span class="post-thumb-tile-mark">PLUMBERS/slatepress</span>
           <span class="post-thumb-tile-tag">Phone<br>economics</span>
         </div>
         <div class="post-content">
           <div class="post-meta">May 2, 2026 · 6 min read</div>
-          <h2>Why your phone went quiet.</h2>
+          <h2>why your phone went quiet.</h2>
           <p>It isn't your reviews, it isn't the season, and it isn't the service area. Most of the calls you think are missing are calls that did come in — they just hit a voicemail nobody listened to until Tuesday. The math on what that's actually costing you, and what fixing it looks like.</p>
           <div class="post-footer">
             <span class="post-tag">Phone economics</span>
-            <span class="post-read">Water is warm <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+            <span class="post-read">water is warm <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
           </div>
         </div>
       </a>
@@ -192,8 +196,8 @@ img{max-width:100%;display:block}
 <footer class="foot">
   <div class="wrap foot-inner">
     <div>
-      <div class="foot-brand">Plumbing\Slatepress</div>
-      <div class="foot-tag">Another SlatePress company</div>
+      <div class="foot-brand"><span class="brand-prefix">PLUMBERS</span><span class="brand-slash">/</span><span class="brand-suffix">slatepress.com</span> &copy; 2026</div>
+      <div class="foot-tag">Bear LLC digital property</div>
     </div>
     <div class="foot-links">
       <a href="/">Home</a>
