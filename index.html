@@ -255,7 +255,7 @@ img{max-width:100%;display:block}
 
 <header class="topnav" id="topnav">
   <div class="topnav-inner">
-    <a href="/" class="brand"><span class="brand-prefix">PLUMBERS</span><span class="brand-slash">/</span><span class="brand-suffix"><span class="letter" style="--i:0">s</span><span class="letter" style="--i:1">l</span><span class="letter" style="--i:2">a</span><span class="letter" style="--i:3">t</span><span class="letter" style="--i:4">e</span><span class="letter" style="--i:5">p</span><span class="letter" style="--i:6">r</span><span class="letter" style="--i:7">e</span><span class="letter" style="--i:8">s</span><span class="letter" style="--i:9">s</span></span><span class="version">v32</span></a>
+    <a href="/" class="brand"><span class="brand-prefix">PLUMBERS</span><span class="brand-slash">/</span><span class="brand-suffix"><span class="letter" style="--i:0">s</span><span class="letter" style="--i:1">l</span><span class="letter" style="--i:2">a</span><span class="letter" style="--i:3">t</span><span class="letter" style="--i:4">e</span><span class="letter" style="--i:5">p</span><span class="letter" style="--i:6">r</span><span class="letter" style="--i:7">e</span><span class="letter" style="--i:8">s</span><span class="letter" style="--i:9">s</span></span><span class="version">v33</span></a>
     <div style="display:flex;align-items:center;gap:1.5rem">
       <a href="/blog/" style="font-weight:600;font-size:14px;color:var(--ink-soft);transition:color .2s">Blog</a>
       <a href="#" data-modal="onboard" class="topnav-cta">Create a free design <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
@@ -824,28 +824,64 @@ img{max-width:100%;display:block}
   });
 })();
 
-// Trade-associations repeater - add/remove rows in the onboard modal form
+// Trade-associations repeater - add/remove rows + auto-fill URL when a known national org is picked
 (function(){
   var list = document.getElementById('trades-list');
   var add = document.getElementById('add-trade');
   if (!list || !add) return;
-  function bindRemove(btn){
-    btn.addEventListener('click', function(){
-      var rows = list.querySelectorAll('.trade-row');
-      if (rows.length === 1) {
-        rows[0].querySelectorAll('input').forEach(function(i){ i.value = ''; });
-      } else {
-        btn.closest('.trade-row').remove();
-      }
-    });
+
+  // Map datalist option labels -> official website URLs (Local Chamber omitted - too local-specific)
+  var KNOWN_URLS = {
+    'PHCC (Plumbing-Heating-Cooling Contractors)': 'https://www.phccweb.org',
+    'ASPE (American Society of Plumbing Engineers)': 'https://www.aspe.org',
+    'IAPMO (Plumbing & Mechanical Officials)': 'https://www.iapmo.org',
+    'UA (United Association \u2014 Plumbers & Pipefitters)': 'https://ua.org',
+    'ASA (American Supply Association)': 'https://www.asa.net',
+    'BBB (Better Business Bureau)': 'https://www.bbb.org',
+    'NKBA (National Kitchen & Bath Association)': 'https://nkba.org',
+    'NAHB (National Association of Home Builders)': 'https://www.nahb.org',
+    'AGC of America': 'https://www.agc.org'
+  };
+
+  function bindRow(row){
+    var nameInput = row.querySelector('input[name="assoc_name[]"]');
+    var urlInput = row.querySelector('input[name="assoc_url[]"]');
+    var removeBtn = row.querySelector('.trade-remove');
+    if (nameInput && urlInput){
+      nameInput.addEventListener('input', function(){
+        var match = KNOWN_URLS[nameInput.value];
+        // Only auto-populate if URL field is empty or was previously auto-filled
+        if (match && (!urlInput.value || urlInput.dataset.autofilled === 'true')){
+          urlInput.value = match;
+          urlInput.dataset.autofilled = 'true';
+        }
+      });
+      // If user manually edits the URL, stop auto-overwriting it
+      urlInput.addEventListener('input', function(e){
+        if (!e.isTrusted) return; // ignore programmatic
+        urlInput.dataset.autofilled = 'false';
+      });
+    }
+    if (removeBtn){
+      removeBtn.addEventListener('click', function(){
+        var rows = list.querySelectorAll('.trade-row');
+        if (rows.length === 1){
+          rows[0].querySelectorAll('input').forEach(function(i){ i.value = ''; delete i.dataset.autofilled; });
+        } else {
+          row.remove();
+        }
+      });
+    }
   }
-  Array.prototype.forEach.call(list.querySelectorAll('.trade-remove'), bindRemove);
+
+  Array.prototype.forEach.call(list.querySelectorAll('.trade-row'), bindRow);
+
   add.addEventListener('click', function(){
     var template = list.querySelector('.trade-row');
     var clone = template.cloneNode(true);
-    Array.prototype.forEach.call(clone.querySelectorAll('input'), function(i){ i.value = ''; });
+    Array.prototype.forEach.call(clone.querySelectorAll('input'), function(i){ i.value = ''; delete i.dataset.autofilled; });
     list.appendChild(clone);
-    bindRemove(clone.querySelector('.trade-remove'));
+    bindRow(clone);
     var firstInput = clone.querySelector('input');
     if (firstInput) firstInput.focus();
   });
