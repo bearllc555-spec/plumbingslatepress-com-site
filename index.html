@@ -212,6 +212,13 @@ img{max-width:100%;display:block}
 .trade-add{display:inline-flex;align-items:center;font-size:13px;color:var(--blue);font-weight:600;background:transparent;border:0;cursor:pointer;padding:8px 0 0;font-family:'Inter',sans-serif}
 .trade-add:hover{text-decoration:underline}
 @media(max-width:560px){.trade-row{grid-template-columns:1fr;gap:6px}.trade-remove{width:auto;padding:6px 12px;border-radius:7px;justify-self:flex-end;font-size:14px}}
+.social-handles{display:flex;flex-direction:column;gap:8px;margin-top:10px;padding:12px 14px;border-radius:8px;background:var(--paper-2);border:1px solid var(--rule-soft)}
+.social-handles[hidden]{display:none}
+.social-handle-row{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:center}
+.social-handle-row label{font-size:12.5px;font-weight:600;color:var(--ink);letter-spacing:-.005em}
+.social-handle-row input{padding:.5rem .65rem;border:1px solid var(--rule);border-radius:7px;font-size:13px;color:var(--ink);background:#fff;font-family:'Inter',sans-serif;width:100%;transition:border-color .15s,box-shadow .15s}
+.social-handle-row input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+@media(max-width:560px){.social-handle-row{grid-template-columns:1fr;gap:4px}}
 .modal-submit{margin-top:10px;padding:1rem 1.4rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;transition:background .2s,transform .2s,border-color .2s;font-family:'Inter',sans-serif}
 .modal-submit:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
 .modal-fine{font-size:11.5px;color:var(--slate);line-height:1.45;text-align:center;margin-top:8px}
@@ -255,7 +262,7 @@ img{max-width:100%;display:block}
 
 <header class="topnav" id="topnav">
   <div class="topnav-inner">
-    <a href="/" class="brand"><span class="brand-prefix">PLUMBERS</span><span class="brand-slash">/</span><span class="brand-suffix"><span class="letter" style="--i:0">s</span><span class="letter" style="--i:1">l</span><span class="letter" style="--i:2">a</span><span class="letter" style="--i:3">t</span><span class="letter" style="--i:4">e</span><span class="letter" style="--i:5">p</span><span class="letter" style="--i:6">r</span><span class="letter" style="--i:7">e</span><span class="letter" style="--i:8">s</span><span class="letter" style="--i:9">s</span></span><span class="version">v33</span></a>
+    <a href="/" class="brand"><span class="brand-prefix">PLUMBERS</span><span class="brand-slash">/</span><span class="brand-suffix"><span class="letter" style="--i:0">s</span><span class="letter" style="--i:1">l</span><span class="letter" style="--i:2">a</span><span class="letter" style="--i:3">t</span><span class="letter" style="--i:4">e</span><span class="letter" style="--i:5">p</span><span class="letter" style="--i:6">r</span><span class="letter" style="--i:7">e</span><span class="letter" style="--i:8">s</span><span class="letter" style="--i:9">s</span></span><span class="version">v34</span></a>
     <div style="display:flex;align-items:center;gap:1.5rem">
       <a href="/blog/" style="font-weight:600;font-size:14px;color:var(--ink-soft);transition:color .2s">Blog</a>
       <a href="#" data-modal="onboard" class="topnav-cta">Create a free design <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
@@ -520,15 +527,16 @@ img{max-width:100%;display:block}
       <div class="ff">
         <label>Where do you already have profiles?</label>
         <div class="ff-checks ff-socials">
-          <label><input type="checkbox" name="socials" value="Google Business Profile"> Google Business</label>
-          <label><input type="checkbox" name="socials" value="Facebook"> Facebook</label>
-          <label><input type="checkbox" name="socials" value="Instagram"> Instagram</label>
-          <label><input type="checkbox" name="socials" value="Yelp"> Yelp</label>
-          <label><input type="checkbox" name="socials" value="Nextdoor"> Nextdoor</label>
-          <label><input type="checkbox" name="socials" value="YouTube"> YouTube</label>
-          <label><input type="checkbox" name="socials" value="TikTok"> TikTok</label>
-          <label><input type="checkbox" name="socials" value="LinkedIn"> LinkedIn</label>
+          <label><input type="checkbox" name="socials" value="Google Business Profile" data-slug="google"> Google Business</label>
+          <label><input type="checkbox" name="socials" value="Facebook" data-slug="facebook"> Facebook</label>
+          <label><input type="checkbox" name="socials" value="Instagram" data-slug="instagram"> Instagram</label>
+          <label><input type="checkbox" name="socials" value="Yelp" data-slug="yelp"> Yelp</label>
+          <label><input type="checkbox" name="socials" value="Nextdoor" data-slug="nextdoor"> Nextdoor</label>
+          <label><input type="checkbox" name="socials" value="YouTube" data-slug="youtube"> YouTube</label>
+          <label><input type="checkbox" name="socials" value="TikTok" data-slug="tiktok"> TikTok</label>
+          <label><input type="checkbox" name="socials" value="LinkedIn" data-slug="linkedin"> LinkedIn</label>
         </div>
+        <div id="social-handles" class="social-handles" hidden></div>
       </div>
       <div class="ff">
         <label>Trade associations you belong to</label>
@@ -885,6 +893,67 @@ img{max-width:100%;display:block}
     var firstInput = clone.querySelector('input');
     if (firstInput) firstInput.focus();
   });
+})();
+
+// Social profiles - show a per-platform handle input below the checkbox grid when each box is checked
+(function(){
+  var socialsContainer = document.querySelector('.ff-socials');
+  var handlesContainer = document.getElementById('social-handles');
+  if (!socialsContainer || !handlesContainer) return;
+  var checkboxes = Array.prototype.slice.call(socialsContainer.querySelectorAll('input[type="checkbox"]'));
+  if (!checkboxes.length) return;
+
+  var PLACEHOLDERS = {
+    google: 'Paste your Google Business profile URL',
+    facebook: 'facebook.com/yourpage',
+    instagram: '@yourhandle',
+    yelp: 'yelp.com/biz/your-business',
+    nextdoor: 'nextdoor.com/pages/your-business',
+    youtube: 'youtube.com/@yourchannel',
+    tiktok: '@yourhandle',
+    linkedin: 'linkedin.com/company/yourbiz'
+  };
+
+  function syncVisibility(){
+    var anyChecked = checkboxes.some(function(c){ return c.checked; });
+    handlesContainer.hidden = !anyChecked;
+  }
+
+  function ensureHandleRow(cb){
+    var slug = cb.dataset.slug;
+    var label = cb.parentElement.textContent.trim();
+    var existing = handlesContainer.querySelector('[data-slug-row="' + slug + '"]');
+    if (cb.checked && !existing){
+      var row = document.createElement('div');
+      row.className = 'social-handle-row';
+      row.setAttribute('data-slug-row', slug);
+      var lbl = document.createElement('label');
+      lbl.textContent = label;
+      lbl.setAttribute('for', 'social-handle-' + slug);
+      var inp = document.createElement('input');
+      inp.type = 'text';
+      inp.id = 'social-handle-' + slug;
+      inp.name = 'social_handle_' + slug;
+      inp.placeholder = PLACEHOLDERS[slug] || 'Profile URL or @handle';
+      inp.setAttribute('autocomplete', 'off');
+      row.appendChild(lbl);
+      row.appendChild(inp);
+      handlesContainer.appendChild(row);
+      // focus newly-added input for fast entry
+      setTimeout(function(){ inp.focus(); }, 30);
+    } else if (!cb.checked && existing){
+      existing.remove();
+    }
+  }
+
+  checkboxes.forEach(function(cb){
+    cb.addEventListener('change', function(){
+      ensureHandleRow(cb);
+      syncVisibility();
+    });
+  });
+  // Initial sync (in case form is reopened with state)
+  syncVisibility();
 })();
 </script>
 <script>
