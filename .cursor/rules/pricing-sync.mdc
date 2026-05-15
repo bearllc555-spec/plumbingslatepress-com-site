@@ -1,0 +1,38 @@
+---
+description: Foundation pricing must stay synced with slatepress.co
+globs: ["index.html"]
+---
+
+# Pricing-sync rule
+
+## The rule
+
+Foundation Founder pricing on this lander MUST stay in lockstep with the parent brand at `slatepress.co`. The two pages reference the same product (Foundation tier) and the same Founder cohort ceiling (50 spots). If the numbers drift between the two pages, prospects on a sales call comparing both pages catch the discrepancy and the trust hit is immediate.
+
+## Sister repos under the same pricing scope
+
+- `slatepress.co` (repo: `slatepress-site`) - the parent brand reference
+- `plumbingslatepress.com` (this repo)
+- Any future vertical-brand lander that also publishes a Foundation pricing card (`hvacslatepress.com`, `electricianslatepress.com`, `roofingslatepress.com`, etc.) once they graduate from splash-tier
+
+If pricing changes on one page, the same change MUST be made on the others in the same session.
+
+## Why this exists
+
+On 2026-05-09 Anthony caught the two live pages drifting apart - slatepress.co was showing `$3,500` setup while plumbingslatepress.com was showing `$4,999`. Cross-page drift = customer-trust hit during sales calls + sales-conversation friction.
+
+The fix: synced to `$4,999` in slatepress.co v26 commit `b393ca0`.
+
+## Current Foundation pricing (verify on every edit)
+
+- **Founder #1-50**: `$4,999` setup + `$269/mo`, grandfathered for life. Closes hard at #50.
+- **Standard #51+**: `$8,999` setup + `$499/mo`.
+
+## What to do when editing pricing on index.html
+
+1. Before committing the pricing change on this repo, surface a reminder in the response that the same change is needed on `slatepress-site` (and any other live vertical landers that have pricing cards).
+2. Pause for Anthony's confirmation that he wants to ship the cross-repo change too.
+3. On confirmation, create matching feature branches on both repos, make the same edit on each, commit and push both, surface both preview URLs.
+4. Anthony reviews both previews; merge both to main in the same session.
+
+This rule applies to every pricing edit, no exceptions. The cleanest tell that this rule fired correctly: every pricing-change commit on this repo gets a sibling commit on slatepress-site within the same hour.

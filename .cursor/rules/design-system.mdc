@@ -1,0 +1,70 @@
+---
+description: Plumbing SlatePress visual language - canonical brand tokens for plumbingslatepress-com-site
+globs: ["**/*.css", "**/*.html"]
+---
+
+# Plumbing SlatePress design system (plumbingslatepress-com-site repo)
+
+This rule encodes the canonical brand tokens for **plumbingslatepress.com** specifically. Each SlatePress vertical-brand repo has its own `:root` block; this rule is repo-scoped and applies only to plumbingslatepress-com-site edits.
+
+The source of truth for these tokens is the `:root` block at the top of `index.html`. If they ever drift, this rule should be updated to match - the live file wins.
+
+## Canonical tokens
+
+```css
+:root{
+  --accent:#2563EB;
+  --accent-glow:rgba(37,99,235,.14);
+
+  --paper:#FAFBFF;          /* primary paper-tinted page canvas */
+  --paper-2:#EEF3FF;        /* secondary surface, slightly bluer */
+  --paper-3:#E1EAFF;        /* tertiary surface, distinctly blue */
+  --white:#FFFFFF;          /* card / contrast surface */
+
+  --ink:#0A0A0A;            /* primary text, near-black */
+  --ink-soft:#3A3D42;       /* secondary text */
+  --slate:#6B6A73;          /* tertiary text */
+
+  --rule:#DCE3F5;           /* default 1px borders */
+  --rule-soft:#E8EDFA;      /* subtle dividers */
+
+  --blue:#2563EB;           /* PRIMARY BRAND BLUE - logo "/" + primary CTAs */
+  --blue-deep:#1D4ED8;      /* hover state for blue */
+  --blue-bright:#3B82F6;    /* lighter accent variant */
+  --blue-soft:#EFF3FF;      /* light blue tint for backgrounds/badges */
+  --blue-glow:rgba(37,99,235,.16);
+
+  --max:1240px;             /* content max-width - wider than slatepress.co's 1080 */
+}
+```
+
+## Type stack
+
+**Inter only.** Single sans-serif throughout. No display serif, no monospace by default.
+
+```css
+font-family: 'Inter', -apple-system, system-ui, sans-serif;
+```
+
+## Cardinal rules for plumbingslatepress-com-site
+
+- **Paper-tinted canvas (`--paper`).** Slightly cooler than pure white - this is the trade-vertical signal that distinguishes plumbing from the slatepress.co parent (which uses pure `--bg #FFFFFF`). Sections step down to `--paper-2` and `--paper-3` for visual rhythm.
+- **Brand blue (`--blue` #2563EB) is the one accent.** Logo `/`, primary CTAs, focus rings, at most one emphasis moment per viewport. No second accent color. The brand-bright `--blue-bright` is reserved for hover/active states or very small accent moments.
+- **`--white` is for contrast surfaces only.** Cards, modal sheets, pricing-card backgrounds. Never for full-page canvases - the paper tint is part of the brand identity.
+- **No new hex codes.** If a component needs a color not in `:root`, raise the design-system question before adding. Drift across pages is the failure mode.
+- **No gradient buttons, no carousels, no Lorem ipsum, no emoji in production UI.**
+- **`--max:1240px`** is wider than slatepress.co (`--max:1080px`). This is intentional - the lander has more business-information content (services, service areas, pricing, comparison table, founders-band). Don't shrink to 1080.
+
+## Pricing pairing
+
+This repo ships the Foundation Founder pricing card synced with slatepress.co. See `pricing-sync.mdc` for the cross-repo discipline. Editing the pricing here without the matching edit on slatepress-site is a customer-trust risk.
+
+## When designing or reviewing UI in this repo
+
+Defer to the `premium-web-designer` Claude skill. It encodes the universal taste rules. This rule supplies the brand-specific tokens it loads when editing plumbingslatepress.com.
+
+When `premium-web-designer` fires, it should:
+1. Ask "What are we designing today?"
+2. On the answer "plumbingslatepress.com" or any edit in this repo, load the tokens above.
+3. Apply universal taste principles on top.
+4. Produce code that references the brand's variable names (`--blue`, `--ink`, `--paper`, `--paper-2`) directly - never invent token names.
